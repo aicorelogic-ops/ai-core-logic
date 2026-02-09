@@ -57,9 +57,19 @@ def run_bot():
             if not is_deployed:
                 print("⚠️ GitHub deploy reported failure (might just be 'no changes'), proceeding anyway...")
 
-            # E. Post to Facebook (ALWAYS try to post, the link is likely fine)
-            print(f"🚀 Publishing to Facebook...")
-            publisher.post_content(fb_message, link=blog_url)
+            # E. Post to Facebook as PHOTO POST (Higher Engagement)
+            # Hyper-dopamine strategy: Photo posts stop the scroll, link is in caption
+            print(f"🚀 Publishing to Facebook as photo post...")
+            
+            # Get the image URL (use article image or the generated one from blog)
+            photo_url = article.get('image_url')
+            if not photo_url:
+                # Fallback: generate a native-style attention-grabbing image
+                import urllib.parse
+                safe_prompt = urllib.parse.quote(f"Breaking news smartphone photo: {article['title']}. Red circle highlight, BREAKING banner, native social media style, high engagement")
+                photo_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=630&nologo=true"
+            
+            publisher.post_photo(photo_url=photo_url, message=fb_message)
             
             # Sleep to avoid spamming
             time.sleep(10)

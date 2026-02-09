@@ -12,10 +12,17 @@ if not API_KEY:
 
 genai.configure(api_key=API_KEY)
 
-# The "Sabri Suby" System Prompt
+# The "Sabri Suby" System Prompt - ENHANCED with NotebookLM Hyper-Dopamine Principles
 SYSTEM_PROMPT = """
 You are a Direct Response Copywriter expert in the style of Sabri Suby.
 Your goal is to write a High Value Content Offer (HVCO) blog post.
+
+CORE PRINCIPLES (From NotebookLM Research):
+- "Forum Foraging": Use the prospect's exact language and words (as if from Reddit/Facebook comments)
+- 80/20 Rule: 80% about PROSPECT'S pain/desires, only 20% about you/solution
+- Sell the CLICK: Big specific benefit + burning intrigue (not the full pitch)
+- 6th Grade Reading Level: Short, punchy sentences. No complex jargon.
+- Long-Form Converts: Buyers need details. Don't be afraid of length.
 
 Style Guidelines:
 - Use short, punchy sentences. (The "Slippery Slope" method).
@@ -39,17 +46,29 @@ ARTICLES = [
         "summary": "Why AI Agents are flattening logistics orgs and saving 40% overhead.",
         "prompt": """
         Write a blog post titled "The Death of the Middle Manager: How AI Agents are Flattening Logistics Orgs".
-        Key Points: 1. Hook: Middle Management is the "silent killer". 2. Pain: Telephone game. 3. Solution: AI Agents. 4. Proof: Negotiation in 300ms. 5. Prediction: 90% fewer managers.
+        
+        STRUCTURE (80% PAIN, 20% SOLUTION):
+        1. Hook: Pattern interrupt - "Middle Management is the 'silent profit killer'. Here's the proof."
+        2. Agitate Pain: The telephone game, lost hours, 3am emergency calls, burning overhead
+        3. The Discovery: AI Agents negotiate in 300ms (use specific numbers)
+        4. Why It Matters: Specific benefit for logistics owners (e.g., "40% overhead reduction")
+        5. Prediction: Where this is headed (90% fewer managers by 2027)
+        
+        Use prospect language: "You're paying a middle manager $80k to forward emails."
         """,
         "social_prompt": """
-        Write a Facebook Ad for this article. 
-        Style: Sabri Suby. Aggressive. Pattern interrupting.
-        Structure: 
-        1. Call out the audience (Logistics Owners/Managers).
-        2. Agitate the pain (Burning profit, 3am calls).
-        3. The Big Reveal (The Death of the Middle Manager).
-        4. Curiosity gap to get the click.
-        Keep it long-form and punchy. Include a link placeholder [LINK].
+        Write a Facebook Ad for this article (LONG-FORM 200+ words).
+        
+        HYPER-DOPAMINE STRUCTURE:
+        1. Call out the audience: "Logistics owners with 10+ person teams..."
+        2. Agitate specific pain: "You're burning $15k/month on middle managers who just... forward emails. 
+           At 3am, they call YOU anyway. The 'telephone game' is costing you deals."
+        3. Curiosity Gap: "We discovered something that cuts management overhead by 40%. No layoffs. No drama."
+        4. Specific Benefit + Intrigue: "AI Agents that negotiate carrier rates in 300 milliseconds."
+        5. The Big Reveal: "The Death of the Middle Manager" (title drop)
+        6. CTA: "The full blueprint is here: [LINK]"
+        
+        Style: Long copy, emojis (🚨⚡), pattern interrupt, specific numbers, NOT vague clickbait.
         """
     },
     {
@@ -58,16 +77,28 @@ ARTICLES = [
         "summary": "The exact blueprint we used to recover 20 hours/week per dispatcher.",
         "prompt": """
         Write a Case Study titled "We Automated a 50-Person Dispatch Team. Here's the Exact Blueprint."
-        Key Points: 1. Problem: 4k emails/day. 2. Bottleneck: Humans reading slow. 3. Fix: Inbox Agent. 4. Result: 20hrs saved/week.
+        
+        STRUCTURE:
+        1. Hook: "4,000 emails a day. 50 people drowning. One solution."
+        2. The Problem: 80% PAIN - Humans reading slow, errors, burnout, 3am calls
+        3. The Bottleneck: Show the exact pain point (use real scenarios)
+        4. The Fix: Inbox Agent - but focus on RESULTS, not tech specs
+        5. Result: 20 hours saved/week per dispatcher (specific number)
+        
+        Use prospect language: "Your dispatchers are buried in admin hell."
         """,
         "social_prompt": """
-        Write a Facebook Ad for this Case Study. 
-        Style: Sabri Suby. 'I found a secret' tone.
-        Call out: Business owners struggling with scaling.
-        Agitate: Tired of your team drowning in admin?
-        Solution: The 'Inbox Agent' blueprint.
-        Proof: 20 hours saved every single week.
-        Include a link placeholder [LINK].
+        Write a Facebook Ad for this Case Study (LONG-FORM 200+ words).
+        
+        HYPER-DOPAMINE STRUCTURE:
+        1. Call out: "Business owners struggling to scale past 20 employees..."
+        2. Agitate: "Your team is drowning in admin. 4,000 emails/day. Errors. Burnout. You can't hire fast enough."
+        3. 'Secret' Tone: "I found a blueprint that gave me back 20 hours per person. Every single week."
+        4. Proof: Real numbers - "50-person dispatch team, 4k emails, 20 hours saved/week"
+        5. The Hook: "The 'Inbox Agent' blueprint"
+        6. CTA: "Steal the exact blueprint here: [LINK]"
+        
+        Style: 'I cracked the code' energy, specific proof, long-form copy.
         """
     },
     {
@@ -76,15 +107,29 @@ ARTICLES = [
         "summary": "A 10-minute guide to building your first AI logic filter.",
         "prompt": """
         Write a technical Tutorial titled "How to Build Your Own 'Email Sorter' Bot in 10 Minutes".
-        Key Points: 1. Promise: No-code logic. 2. Stack: Python/Gemini. 3. Concept: Auto-sorting. 4. Benefit: Inbox peace.
+        
+        STRUCTURE:
+        1. Hook: "You don't need a $50k dev team. Here's proof."
+        2. Pain (80%): "Your inbox is a graveyard. 800 unread. Missed deals. Anxiety."
+        3. Promise: No-code logic, anyone can do this
+        4. The Stack: Python + Gemini (but keep it simple)
+        5. The Concept: Auto-sorting magic
+        6. The Benefit: Inbox peace (emotional outcome)
+        
+        Make it accessible to non-technical readers.
         """,
         "social_prompt": """
-        Write a Facebook Ad for this Tutorial.
-        Style: 'You're being lied to' energy. 
-        Hook: You don't need a dev team to automate your life.
-        Agitate: Your inbox is a graveyard of wasted time.
-        Offer: A 10-minute blueprint to reclaim your peace.
-        Include a link placeholder [LINK].
+        Write a Facebook Ad for this Tutorial (LONG-FORM 200+ words).
+        
+        HYPER-DOPAMINE STRUCTURE:
+        1. 'You're being lied to' Hook: "They told you that you need a dev team to automate. That's a lie."
+        2. Agitate: "Your inbox: 800 unread. You miss deals. You feel behind. Every. Single. Day."
+        3. The Reveal: "I built an 'Email Sorter' bot in 10 minutes. Zero code. Zero devs."
+        4. Specific Benefit: "Inbox goes from 800 → 0. Autopilot."
+        5. The Offer: "I'm giving you the exact 10-minute blueprint."
+        6. CTA: "Reclaim your peace here: [LINK]"
+        
+        Style: Rebellious, specific, long-form, emojis (🔥💡).
         """
     }
 ]
@@ -127,9 +172,17 @@ def generate_hvco():
             except exceptions.ResourceExhausted:
                 time.sleep(20 * (2 ** attempt))
 
-        # 3. Create 'Screaming' Visual Prompt
-        # High contrast, bold, editorial, attention-grabbing
-        screaming_prompt = urllib.parse.quote(f"Bold high-impact editorial illustration: {article['title']}. Vibrant neon colors, high contrast, dramatic shadows, futuristic digital art style, ultra-detailed, 8k, attention-grabbing composition")
+        # 3. Create 'Native Hyper-Dopamine' Visual Prompt
+        # NotebookLM Strategy: Raw, iPhone photo style, pattern interrupts (red circles, breaking news banners)
+        # Avoid polished "ad look" - use native social media aesthetic
+        import random
+        native_styles = [
+            f"iPhone smartphone photo: {article['title']}. Red circle highlighting key element, BREAKING NEWS banner overlay, raw authentic photography, native social media aesthetic, high engagement",
+            f"Raw smartphone photo with reaction shot inset: {article['title']}. Dual image composition, authentic native style, pattern interrupt visual, high contrast",
+            f"Breaking news style screenshot: {article['title']}. News notification aesthetic, bold text overlay, authentic smartphone capture, attention-grabbing"
+        ]
+        chosen_style = random.choice(native_styles)
+        screaming_prompt = urllib.parse.quote(chosen_style)
         image_url = f"https://image.pollinations.ai/prompt/{screaming_prompt}?width=1200&height=630&nologo=true"
 
         # 4. Create Blog Post

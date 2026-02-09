@@ -26,28 +26,41 @@ class NewsProcessor:
             return None
 
         prompt = f"""
-        You are an expert AI Analyst for 'AI Core Logic'.
+        You are a Direct Response Copywriter for 'AI Core Logic' - writing in the style of Sabri Suby.
         
         Input:
         Title: {article['title']}
         Summary: {article['summary']}
         
+        CORE PRINCIPLES:
+        - 80% about the PROSPECT'S pain/desires, only 20% about the solution
+        - Use short, punchy sentences (6th grade reading level)
+        - NO fluff or generic intros like "In today's world..."
+        - Sell the CLICK, not the product
+        
         Task: Create TWO outputs in a strictly formatted way.
         
         Output 1: A BLOG POST (HTML Format)
-        - Use <h3> for subheaders.
-        - Use <p> for paragraphs.
-        - Use <ul><li> for lists.
-        - Tone: Detailed, analytical, educational.
-        - content: 
-            - "What is it?"
-            - "Why it matters for Business/Logistics"
-            - "Our Take/Prediction"
+        - Start with a PATTERN INTERRUPT hook (not generic intro)
+        - Use <h3> for subheaders to break up text
+        - Use <p> for paragraphs, <b> for emphasis, <ul><li> for lists
+        - Structure:
+            1. Hook: Pattern interrupt (e.g., "Your dispatcher is burning $10k/month. Here's proof.")
+            2. Agitate the Pain: What's really costing them (use specific numbers/scenarios)
+            3. The Discovery: What we found that changes everything
+            4. Why It Matters: Specific benefit for logistics/business owners
+            5. The Prediction: Where this is headed
+        - Long-form content (buyers need details to convert)
+        - Use subheads like "The Silent Profit Killer", "What We Discovered", "The 40% Rule"
         
-        Output 2: A FACEBOOK POST (Plain Text)
-        - Hook: "🚀 New AI Tool..."
-        - Teaser: "We analyzed how [Tool] affects your business..."
-        - CTA: "Read the full analysis here: [LINK]" (Place holder [LINK])
+        Output 2: A FACEBOOK POST (Plain Text, LONG-FORM 200+ words)
+        - Call out the audience: "Logistics owners..." / "If you manage a dispatch team..."
+        - Agitate specific pain: Use emotional, relatable scenarios (e.g., "Tired of 3am calls about missing invoices?")
+        - Create burning curiosity: Specific benefit + intrigue (e.g., "The one automation recovering 20 hours per dispatcher")
+        - NOT clickbait - be specific enough to attract the right people
+        - Include emojis for pattern interrupt (🚨, 🔥, ⚡, 💡)
+        - Long copy converts better - answer objections, build intrigue
+        - End with: "Full breakdown here: [LINK]"
         
         RETURN FORMAT:
         Separate the two with a delimiter "|||||".

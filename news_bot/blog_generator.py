@@ -22,9 +22,9 @@ class BlogGenerator:
         
         # Image Logic: Use Original OR Generate AI
         if not image_url:
-            # Create a more descriptive prompt using the title
-            # We add "visual representation" to ensure it's not text-heavy
-            safe_prompt = urllib.parse.quote(f"editorial illustration for news article: {title}. cyberpunk style, neon, data visualization, minimalist, 3d render, high quality, 8k, dark blue and mint green palette")
+            # Create a 'native style' prompt that doesn't look like an ad
+            # Hyper-dopamine strategy: Breaking news banner, raw iPhone photo aesthetic, red circle highlight
+            safe_prompt = urllib.parse.quote(f"iPhone photo style breaking news: {title}. Red circle highlighting key element, 'BREAKING NEWS' banner overlay, raw authentic smartphone photography, native social media aesthetic, high engagement visual, realistic lighting")
             image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=600&nologo=true"
         
         # HTML Template for individual post (Updated with Hero Image)
@@ -97,8 +97,8 @@ class BlogGenerator:
         index_path = os.path.join(BLOG_DIR, "index.html")
         
         if not image_url:
-            # Generate AI Image URL for the Card (Smaller)
-            safe_prompt = urllib.parse.quote(f"minimalist abstract icon for {title}, dark background, mint green, high tech, 3d render")
+            # Generate 'Native Card' Image - raw, attention-grabbing thumbnail
+            safe_prompt = urllib.parse.quote(f"Raw smartphone photo about {title}, authentic native social media style, high contrast, pattern interrupt visual, attention-grabbing composition, mint green accent")
             image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=600&height=400&nologo=true"
 
         # New Forest-Style Card HTML
