@@ -39,14 +39,17 @@ ARTICLES = [
         "summary": "Why AI Agents are flattening logistics orgs and saving 40% overhead.",
         "prompt": """
         Write a blog post titled "The Death of the Middle Manager: How AI Agents are Flattening Logistics Orgs".
-        
-        Key Points:
-        1. Hook: Middle Management is the "silent killer" of logistics margins.
-        2. Pain: The endless game of "telephone" between dispatch, drivers, and clients.
-        3. Solution: Autonomous AI Agents don't just "report" data, they Act.
-        4. Proof: Explain how an Agent can negotiate a rate, book a load, and update the CRM in 30 seconds.
-        5. Prediction: By 2027, logistics companies will run with 90% fewer managers.
-        6. CTA: Don't fire your team, upgrade them to "Agent Architects".
+        Key Points: 1. Hook: Middle Management is the "silent killer". 2. Pain: Telephone game. 3. Solution: AI Agents. 4. Proof: Negotiation in 300ms. 5. Prediction: 90% fewer managers.
+        """,
+        "social_prompt": """
+        Write a Facebook Ad for this article. 
+        Style: Sabri Suby. Aggressive. Pattern interrupting.
+        Structure: 
+        1. Call out the audience (Logistics Owners/Managers).
+        2. Agitate the pain (Burning profit, 3am calls).
+        3. The Big Reveal (The Death of the Middle Manager).
+        4. Curiosity gap to get the click.
+        Keep it long-form and punchy. Include a link placeholder [LINK].
         """
     },
     {
@@ -55,14 +58,16 @@ ARTICLES = [
         "summary": "The exact blueprint we used to recover 20 hours/week per dispatcher.",
         "prompt": """
         Write a Case Study titled "We Automated a 50-Person Dispatch Team. Here's the Exact Blueprint."
-        
-        Key Points:
-        1. The Problem: A mid-sized logistics firm was drowning in email. 4,000 emails/day.
-        2. The Bottleneck: Humans can't read fast enough. Missed loads = Lost revenue.
-        3. The Fix: We deployed "NewsBot's Cousin" - a tailored Inbox Agent.
-        4. The Process: It reads probability of booking, drafts replies, and flags high-value loads.
-        5. The Result: 20 hours saved per week per dispatcher. Revenue up 15%.
-        6. The Blueprint: Step 1 (Audit), Step 2 (Connect API), Step 3 (Train).
+        Key Points: 1. Problem: 4k emails/day. 2. Bottleneck: Humans reading slow. 3. Fix: Inbox Agent. 4. Result: 20hrs saved/week.
+        """,
+        "social_prompt": """
+        Write a Facebook Ad for this Case Study. 
+        Style: Sabri Suby. 'I found a secret' tone.
+        Call out: Business owners struggling with scaling.
+        Agitate: Tired of your team drowning in admin?
+        Solution: The 'Inbox Agent' blueprint.
+        Proof: 20 hours saved every single week.
+        Include a link placeholder [LINK].
         """
     },
     {
@@ -70,76 +75,92 @@ ARTICLES = [
         "title": "Tutorial: Build Your Own 'Email Sorter' Bot",
         "summary": "A 10-minute guide to building your first AI logic filter.",
         "prompt": """
-        Write a technical but accessible Tutorial titled "How to Build Your Own 'Email Sorter' Bot in 10 Minutes".
-        
-        Key Points:
-        1. The Promise: You don't need to be a coder to use Logic.
-        2. The Stack: Python + Gemini API + Gmail API.
-        3. The Concept: "If Email contains 'Invoice', move to 'Finance'. Else, archive."
-        4. The Code: Provide pseudo-code or simple Python snippets for the logic loop.
-        5. The Benefit: "One clean inbox = Peace of mind."
+        Write a technical Tutorial titled "How to Build Your Own 'Email Sorter' Bot in 10 Minutes".
+        Key Points: 1. Promise: No-code logic. 2. Stack: Python/Gemini. 3. Concept: Auto-sorting. 4. Benefit: Inbox peace.
+        """,
+        "social_prompt": """
+        Write a Facebook Ad for this Tutorial.
+        Style: 'You're being lied to' energy. 
+        Hook: You don't need a dev team to automate your life.
+        Agitate: Your inbox is a graveyard of wasted time.
+        Offer: A 10-minute blueprint to reclaim your peace.
+        Include a link placeholder [LINK].
         """
     }
 ]
 
+
 def generate_hvco():
     print("🚀 Starting HVCO Generator (Sabri Mode)...")
     
+    from news_bot.publisher import FacebookPublisher
     blog_gen = BlogGenerator()
-    # Updated to use the available model from list_models.py
+    fb_pub = FacebookPublisher()
     model = genai.GenerativeModel('models/gemini-2.0-flash')
 
     import time
     from google.api_core import exceptions
+    import urllib.parse
 
     for article in ARTICLES:
         print(f"\n✍️ Writing: {article['title']}...")
         
-        # Retry Logic for Rate Limits
-        max_retries = 5
-        base_delay = 10
-        
-        for attempt in range(max_retries):
+        # 1. Generate Blog Content
+        content_html = None
+        for attempt in range(5):
             try:
-                # Generate Content
-                full_prompt = f"{SYSTEM_PROMPT}\n\nTASK:\n{article['prompt']}"
-                response = model.generate_content(full_prompt)
+                response = model.generate_content(f"{SYSTEM_PROMPT}\n\nTASK:\n{article['prompt']}")
                 content_html = response.text.replace("```html", "").replace("```", "")
-                break # Success, exit retry loop
-            except exceptions.ResourceExhausted:
-                wait_time = base_delay * (2 ** attempt)
-                print(f"⚠️ Rate Limit Hit. Waiting {wait_time} seconds...")
-                time.sleep(wait_time)
-            except Exception as e:
-                print(f"❌ Error generating content: {e}")
-                content_html = None
                 break
-        
-        if not content_html:
-            print(f"❌ Skipping {article['title']} after failures.")
-            continue
+            except exceptions.ResourceExhausted:
+                time.sleep(20 * (2 ** attempt))
 
-        # Create Post
+        if not content_html: continue
+
+        # 2. Generate Social Ad Copy
+        social_copy = None
+        for attempt in range(5):
+            try:
+                response = model.generate_content(f"{SYSTEM_PROMPT}\n\nTASK:\n{article['social_prompt']}")
+                social_copy = response.text.replace("```text", "").replace("```", "").strip()
+                break
+            except exceptions.ResourceExhausted:
+                time.sleep(20 * (2 ** attempt))
+
+        # 3. Create 'Screaming' Visual Prompt
+        # High contrast, bold, editorial, attention-grabbing
+        screaming_prompt = urllib.parse.quote(f"Bold high-impact editorial illustration: {article['title']}. Vibrant neon colors, high contrast, dramatic shadows, futuristic digital art style, ultra-detailed, 8k, attention-grabbing composition")
+        image_url = f"https://image.pollinations.ai/prompt/{screaming_prompt}?width=1200&height=630&nologo=true"
+
+        # 4. Create Blog Post
         filename = blog_gen.create_post(
             title=article['title'],
             content_html=content_html,
-            original_link="https://aicorelogic.com/services"  # Self-referential source
+            original_link="https://aicorelogic-ops.github.io/ai-core-logic/",
+            image_url=image_url
         )
         
-        # Update Index
         blog_gen.update_index(
             title=article['title'],
             summary=article['summary'],
-            filename=filename
+            filename=filename,
+            image_url=image_url
         )
-        
-        # Safety Sleep between articles
-        print("💤 Cooling down API for 20 seconds...")
-        time.sleep(20)
 
-    # Deploy
+        # 5. Post to Facebook as PHOTO POST (Screaming Visual + Ad Copy)
+        live_link = f"https://aicorelogic-ops.github.io/ai-core-logic/blog/posts/{filename}"
+        final_social_msg = social_copy.replace("[LINK]", live_link)
+        
+        print(f"📢 Posting to Facebook: {article['title']}...")
+        fb_pub.post_photo(photo_url=image_url, message=final_social_msg)
+        
+        print("💤 Cooling down API...")
+        time.sleep(30)
+
+    # Deploy Blog
     print("\n☁️ Deploying all changes to GitHub...")
     blog_gen.deploy_to_github()
+
 
 if __name__ == "__main__":
     generate_hvco()
