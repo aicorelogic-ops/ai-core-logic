@@ -27,12 +27,25 @@ class NewsCollector:
                 title = entry.title.lower()
                 summary = getattr(entry, "summary", "").lower()
                 
+                # Image Extraction
+                image_url = None
+                if "media_content" in entry:
+                    image_url = entry.media_content[0]["url"]
+                elif "media_thumbnail" in entry:
+                    image_url = entry.media_thumbnail[0]["url"]
+                elif "links" in entry:
+                    for link in entry.links:
+                        if link.rel == "enclosure" and "image" in link.type:
+                            image_url = link.href
+                            break
+                
                 if any(kw in title or kw in summary for kw in KEYWORDS):
                     recent_news.append({
                         "title": entry.title,
                         "link": entry.link,
                         "summary": entry.summary,
-                        "published": pub_date
+                        "published": pub_date,
+                        "image_url": image_url
                     })
         
         return recent_news

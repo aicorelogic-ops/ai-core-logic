@@ -33,14 +33,16 @@ def run_bot():
             filename = blog_gen.create_post(
                 article['title'], 
                 content_package['blog_html'], 
-                article['link']
+                article['link'],
+                image_url=article.get('image_url')
             )
             
             # B. Update Index
             blog_gen.update_index(
                 article['title'], 
                 "New AI Analysis available.", # Simple snippet
-                filename
+                filename,
+                image_url=article.get('image_url')
             )
             
             # C. Prepare Facebook Link

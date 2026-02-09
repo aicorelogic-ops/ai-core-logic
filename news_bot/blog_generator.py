@@ -10,18 +10,22 @@ os.makedirs(POSTS_DIR, exist_ok=True)
 import urllib.parse
 
 class BlogGenerator:
-    def create_post(self, title, content_html, original_link):
+    def create_post(self, title, content_html, original_link, image_url=None):
         """
-        Creates a new HTML file for the blog post and returns its relative path.
+        Creates a new HTML file for the blog post.
+        Uses original image if available, else generates one based on title + content keywords.
         """
         # Create a safe filename
         safe_title = "".join([c if c.isalnum() else "-" for c in title]).lower()
         filename = f"{datetime.now().strftime('%Y-%m-%d')}-{safe_title[:30]}.html"
         filepath = os.path.join(POSTS_DIR, filename)
         
-        # Generate AI Image URL based on title
-        safe_prompt = urllib.parse.quote(f"futuristic abstract art representing {title}, cyberpunk, neon, logic, data, high quality, 8k")
-        image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=600&nologo=true"
+        # Image Logic: Use Original OR Generate AI
+        if not image_url:
+            # Create a more descriptive prompt using the title
+            # We add "visual representation" to ensure it's not text-heavy
+            safe_prompt = urllib.parse.quote(f"editorial illustration for news article: {title}. cyberpunk style, neon, data visualization, minimalist, 3d render, high quality, 8k, dark blue and mint green palette")
+            image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=600&nologo=true"
         
         # HTML Template for individual post (Updated with Hero Image)
         post_html = f"""
@@ -51,8 +55,8 @@ class BlogGenerator:
         <div class="article-date" style="color: var(--accent-mint);">{datetime.now().strftime('%B %d, %Y')}</div>
         <h1 style="font-size: 3rem; line-height: 1.2; margin-bottom: 2rem;">{title}</h1>
         
-        <!-- Generated Hero Image -->
-        <img src="{image_url}" alt="AI Illustration" style="width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <!-- Hero Image -->
+        <img src="{image_url}" alt="Article Image" style="width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover;">
 
         <div class="article-body" style="font-size: 1.1rem; color: #e2e8f0;">
             {content_html}
@@ -78,20 +82,21 @@ class BlogGenerator:
         print(f"✅ Blog post created: {filepath}")
         return filename
 
-    def update_index(self, title, summary, filename):
+    def update_index(self, title, summary, filename, image_url=None):
         """
         Injects the new post into the top of index.html using the new Forest Design.
         """
         index_path = os.path.join(BLOG_DIR, "index.html")
         
-        # Generate AI Image URL for the Card (Smaller)
-        safe_prompt = urllib.parse.quote(f"abstract 3d render of {title}, dark background, mint green light, minimalist, high tech")
-        card_image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=600&height=400&nologo=true"
+        if not image_url:
+            # Generate AI Image URL for the Card (Smaller)
+            safe_prompt = urllib.parse.quote(f"minimalist abstract icon for {title}, dark background, mint green, high tech, 3d render")
+            image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=600&height=400&nologo=true"
 
         # New Forest-Style Card HTML
         new_entry = f"""
         <article class="article-card">
-            <div class="card-image-placeholder" style="background-image: url('{card_image_url}');">
+            <div class="card-image-placeholder" style="background-image: url('{image_url}');">
                 <span class="category-pill">AI Update</span>
             </div>
             <div class="card-content">
