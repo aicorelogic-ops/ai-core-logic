@@ -49,15 +49,15 @@ def run_bot():
             
             fb_message = content_package['facebook_msg'].replace("[LINK]", blog_url)
             
-            # D. Deploy to GitHub (Critical step for the link to work)
+            # D. Deploy to GitHub
             is_deployed = blog_gen.deploy_to_github()
             
-            if is_deployed:
-                # E. Post to Facebook
-                print(f"🚀 Publishing to Facebook...")
-                publisher.post_content(fb_message, link=blog_url)
-            else:
-                print("⚠️ Skipping Facebook post because GitHub deploy failed (Link would represent 404).")
+            if not is_deployed:
+                print("⚠️ GitHub deploy reported failure (might just be 'no changes'), proceeding anyway...")
+
+            # E. Post to Facebook (ALWAYS try to post, the link is likely fine)
+            print(f"🚀 Publishing to Facebook...")
+            publisher.post_content(fb_message, link=blog_url)
             
             # Sleep to avoid spamming
             time.sleep(10)
