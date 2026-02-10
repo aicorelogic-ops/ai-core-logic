@@ -41,27 +41,43 @@ class NewsProcessor:
         Task: Create TWO outputs in a strictly formatted way.
         
         Output 1: A BLOG POST (HTML Format)
+        **CRITICAL: Do NOT just summarize the original. Add AI.Core Logic's unique, opinionated spin:**
+        - Make it logistics/business-focused (not generic AI news)
+        - Strong predictions and opinions (not neutral reporting)
+        - "Why this matters to YOUR business" framing
+        
         - Start with a PATTERN INTERRUPT hook (not generic intro)
         - Use <h3> for subheaders to break up text
         - Use <p> for paragraphs, <b> for emphasis, <ul><li> for lists
         - Structure:
             1. Hook: Pattern interrupt (e.g., "Your dispatcher is burning $10k/month. Here's proof.")
             2. Agitate the Pain: What's really costing them (use specific numbers/scenarios)
-            3. The Discovery: What we found that changes everything
+            3. The Discovery: What we found that changes everything  
             4. Why It Matters: Specific benefit for logistics/business owners
             5. The Prediction: Where this is headed
         - Long-form content (buyers need details to convert)
         - Use subheads like "The Silent Profit Killer", "What We Discovered", "The 40% Rule"
         
-        Output 2: A FACEBOOK POST (Plain Text, LONG-FORM 200+ words)
-        - Call out the audience: "Logistics owners..." / "If you manage a dispatch team..."
-        - Agitate specific pain: Use emotional, relatable scenarios (e.g., "Tired of 3am calls about missing invoices?")
-        - Create burning curiosity: Specific benefit + intrigue (e.g., "The one automation recovering 20 hours per dispatcher")
-        - NOT clickbait - be specific enough to attract the right people
+        Output 2: A FACEBOOK POST (Plain Text, SHORT & PUNCHY 100-150 words MAX)
+        **KEEP IT SHORT - Long posts are boring, nobody reads them**
+        - Lead with the hook emoji + shocking statement
+        - 2-3 punchy sentences of pain (short!)
+        - 1 sentence with intrigue/benefit
+        - Link + strong CTA
         - Include emojis for pattern interrupt (🚨, 🔥, ⚡, 💡)
-        - Long copy converts better - answer objections, build intrigue
-        - End with: "Full breakdown here: [LINK]"
-        - CRITICAL: Include 5-7 relevant hashtags at the very end (e.g., #AI #Logistics #Automation #BusinessGrowth #AITools #SupplyChain #TechInnovation)
+        - End with: "Full story: [LINK]"
+        - CRITICAL: Include 5-7 relevant hashtags at the very end
+        
+        Example structure:
+        🚨 [Shocking hook in 10 words max]
+        
+        [Pain sentence 1]. [Pain sentence 2]. 
+        
+        [Intrigue: "Here's what we found..." or "The solution: ..."]
+        
+        Full story: [LINK]
+        
+        #Hashtag1 #Hashtag2 #Hashtag3 #Hashtag4 #Hashtag5
         
         CRITICAL RETURN FORMAT:
         - DO NOT include labels like "Output 1:" or "Output 2:" in your response

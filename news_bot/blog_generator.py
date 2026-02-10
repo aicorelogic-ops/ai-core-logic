@@ -20,12 +20,33 @@ class BlogGenerator:
         filename = f"{datetime.now().strftime('%Y-%m-%d')}-{safe_title[:30]}.html"
         filepath = os.path.join(POSTS_DIR, filename)
         
-        # Image Logic: Use Original OR Generate AI
-        if not image_url:
-            # Create a 'native style' prompt that doesn't look like an ad
-            # Hyper-dopamine strategy: Breaking news banner, raw iPhone photo aesthetic, red circle highlight
-            safe_prompt = urllib.parse.quote(f"iPhone photo style breaking news: {title}. Red circle highlighting key element, 'BREAKING NEWS' banner overlay, raw authentic smartphone photography, native social media aesthetic, high engagement visual, realistic lighting")
-            image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=600&nologo=true"
+        
+        # ALWAYS generate custom scroll-stopping image with TEXT OVERLAY
+        # Extract a hook from the title for the image (first 60 chars or shocking part)
+        image_hook = title[:60] if len(title) <= 60 else title.split(':')[0][:60]
+        
+        # Add aggressive visual tactics like the copywriting
+        import random
+        image_styles = [
+            # Style 1: Bold Text Shock
+            f"Bold text overlay on dark background: '{image_hook.upper()}', "
+            f"fire emoji 🔥, warning symbol ⚠️, high contrast neon colors, "
+            f"viral social media post aesthetic, attention-grabbing typography",
+            
+            # Style 2: Alert/Breaking News
+            f"Smartphone notification screenshot style: 🚨 ALERT banner, "
+            f"text: '{image_hook}', red and black color scheme, "
+            f"breaking news aesthetic, high urgency visual",
+            
+            # Style 3: Stat Shock
+            f"Bold statistics typography on gradient background about {title}, "
+            f"large numbers, percentage symbols, dollar signs, "
+            f"neon accent colors, viral content style, pattern interrupt visual"
+        ]
+        
+        chosen_style = random.choice(image_styles)
+        safe_prompt = urllib.parse.quote(chosen_style)
+        image_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=630&nologo=true"
         
         # HTML Template for individual post (Updated with Hero Image)
         post_html = f"""

@@ -61,13 +61,17 @@ def run_bot():
             # Hyper-dopamine strategy: Photo posts stop the scroll, link is in caption
             print(f"🚀 Publishing to Facebook as photo post...")
             
-            # Get the image URL (use article image or the generated one from blog)
-            photo_url = article.get('image_url')
-            if not photo_url:
-                # Fallback: generate a native-style attention-grabbing image
-                import urllib.parse
-                safe_prompt = urllib.parse.quote(f"Breaking news smartphone photo: {article['title']}. Red circle highlight, BREAKING banner, native social media style, high engagement")
-                photo_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=630&nologo=true"
+            # ALWAYS generate custom scroll-stopping image (don't use article photos)
+            # Extract hook from title
+            import urllib.parse
+            image_hook = article['title'][:60] if len(article['title']) <= 60 else article['title'].split(':')[0][:60]
+            
+            safe_prompt = urllib.parse.quote(
+                f"Bold text overlay on dark background: '{image_hook.upper()}', "
+                f"fire emoji 🔥, warning symbol ⚠️, high contrast neon red and black, "
+                f"viral social media aesthetic, attention-grabbing typography, scroll-stopping visual"
+            )
+            photo_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=630&nologo=true"
             
             publisher.post_photo(photo_url=photo_url, message=fb_message)
             
