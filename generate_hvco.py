@@ -67,6 +67,7 @@ ARTICLES = [
         4. Specific Benefit + Intrigue: "AI Agents that negotiate carrier rates in 300 milliseconds."
         5. The Big Reveal: "The Death of the Middle Manager" (title drop)
         6. CTA: "The full blueprint is here: [LINK]"
+        7. HASHTAGS: Include 5-7 relevant hashtags at the end (e.g., #AI #Logistics #BusinessAutomation #MiddleManagement #AIAgents #SupplyChain #TechInnovation)
         
         Style: Long copy, emojis (🚨⚡), pattern interrupt, specific numbers, NOT vague clickbait.
         """
@@ -91,14 +92,15 @@ ARTICLES = [
         Write a Facebook Ad for this Case Study (LONG-FORM 200+ words).
         
         HYPER-DOPAMINE STRUCTURE:
-        1. Call out: "Business owners struggling to scale past 20 employees..."
-        2. Agitate: "Your team is drowning in admin. 4,000 emails/day. Errors. Burnout. You can't hire fast enough."
-        3. 'Secret' Tone: "I found a blueprint that gave me back 20 hours per person. Every single week."
-        4. Proof: Real numbers - "50-person dispatch team, 4k emails, 20 hours saved/week"
-        5. The Hook: "The 'Inbox Agent' blueprint"
-        6. CTA: "Steal the exact blueprint here: [LINK]"
+        1. Call out: "If you're drowning in 4,000 emails a day..."
+        2. Paint the nightmare: "Your team spends 6 hours/day just sorting carrier emails. The invoices pile up."
+        3. The discovery: "We eliminated 90% of email admin. Here's the before/after."
+        4. Specific proof: "20 hours saved per dispatcher. 50-person team. Real numbers."
+        5. The reveal: Case study title drop
+        6. CTA: "See the full breakdown: [LINK]"
+        7. HASHTAGS: Include 5-7 relevant hashtags (e.g., #CaseStudy #EmailAutomation #ProductivityHacks #Logistics #AI #DispatchTeam #BusinessEfficiency)
         
-        Style: 'I cracked the code' energy, specific proof, long-form copy.
+        Style: Long copy, emojis (📊💡), case study proof, specific metrics, NOT theoretical.
         """
     },
     {
@@ -122,12 +124,13 @@ ARTICLES = [
         Write a Facebook Ad for this Tutorial (LONG-FORM 200+ words).
         
         HYPER-DOPAMINE STRUCTURE:
-        1. 'You're being lied to' Hook: "They told you that you need a dev team to automate. That's a lie."
+        1. Call out: "If you have 800+ unread emails right now..."
         2. Agitate: "Your inbox: 800 unread. You miss deals. You feel behind. Every. Single. Day."
         3. The Reveal: "I built an 'Email Sorter' bot in 10 minutes. Zero code. Zero devs."
         4. Specific Benefit: "Inbox goes from 800 → 0. Autopilot."
         5. The Offer: "I'm giving you the exact 10-minute blueprint."
         6. CTA: "Reclaim your peace here: [LINK]"
+        7. HASHTAGS: Include 5-7 relevant hashtags (e.g., #Tutorial #EmailProductivity #AITools #NoCode #Automation #WorkSmarter #TechTutorial)
         
         Style: Rebellious, specific, long-form, emojis (🔥💡).
         """

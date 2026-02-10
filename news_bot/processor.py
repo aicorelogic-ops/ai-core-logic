@@ -61,6 +61,7 @@ class NewsProcessor:
         - Include emojis for pattern interrupt (🚨, 🔥, ⚡, 💡)
         - Long copy converts better - answer objections, build intrigue
         - End with: "Full breakdown here: [LINK]"
+        - CRITICAL: Include 5-7 relevant hashtags at the very end (e.g., #AI #Logistics #Automation #BusinessGrowth #AITools #SupplyChain #TechInnovation)
         
         CRITICAL RETURN FORMAT:
         - DO NOT include labels like "Output 1:" or "Output 2:" in your response
