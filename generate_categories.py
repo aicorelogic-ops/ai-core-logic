@@ -26,8 +26,29 @@ def get_posts():
         title_match = re.search(r'<title>(.*?) \|', content)
         title = title_match.group(1) if title_match else filepath.stem
         
-        img_match = re.search(r"background-image: url\('(.*?)'\)", content)
-        image_url = img_match.group(1) if img_match else ""
+        # Image Extraction Strategy (Fallback Logic)
+        image_url = ""
+        
+        # 1. Try Open Graph Image (Most Reliable)
+        og_match = re.search(r'<meta property="og:image" content="(.*?)"', content)
+        if og_match:
+            image_url = og_match.group(1)
+        
+        # 2. Try CSS Background (Standard Generator)
+        if not image_url:
+            css_match = re.search(r"background(?:-image)?: url\(['\"]?(.*?)['\"]?\)", content)
+            if css_match:
+                image_url = css_match.group(1)
+                
+        # 3. Try First Image Tag (Legacy/Migrated Posts) - Ignore logo/assets
+        if not image_url:
+            img_matches = re.finditer(r'<img [^>]*src=["\'](.*?)["\']', content)
+            for m in img_matches:
+                src = m.group(1)
+                # Skip assets, logos, icons
+                if "assets/" not in src and "logo" not in src.lower() and "icon" not in src.lower():
+                    image_url = src
+                    break
         
         date_match = re.search(r'<span class="date">(.*?)</span>', content)
         date = date_match.group(1) if date_match else ""
