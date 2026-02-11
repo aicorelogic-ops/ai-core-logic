@@ -109,10 +109,30 @@ class NewsProcessor:
         - Suggest scene with FACES (multiple faces = maximum attention)
         - Align mood with arousal emotion (urgent/exciting/shocking)
         
+        Output 3: A TL;DR SUMMARY (2-3 Bullet Points)
+        **PURPOSE**: Distill the entire article into actionable key takeaways
+        
+        **FORMAT**:
+        - Exactly 2-3 bullet points
+        - Each bullet should be ONE sentence (15-20 words max)
+        - Focus on ACTIONABLE insights or shocking facts
+        - Use plain text (no markdown symbols like • or -)
+        
+        Output 4: EDITORIAL PROSPECT (Unique Insight)
+        **PURPOSE**: A short, punchy opinion/take on why this matters (for the author bio section)
+        
+        **FORMAT**:
+        - A 2-3 sentence paragraph (50-70 words)
+        - Written in a "no-nonsense, insider" voice
+        - Explain the "Real Truth" or "Hidden Implication" of this news
+        - Start with a strong hook like "Let's be real," "Here's the thing," or "The bottom line is"
+        
         CRITICAL RETURN FORMAT:
-        - Separate outputs ONLY with "|||||".
-        - First part = HTML blog.
-        - Second part = Plain text Facebook post.
+        - Separate outputs with EXACT delimiter: "|||||"
+        - First part = HTML blog
+        - Second part = Plain text Facebook post
+        - Third part = TL;DR bullet points
+        - Fourth part = Editorial Prospect text
         """
 
         try:
@@ -123,7 +143,9 @@ class NewsProcessor:
             if "|||||" in text:
                 parts = text.split("|||||")
                 blog_html = parts[0].strip()
-                facebook_msg = parts[1].strip()
+                facebook_msg = parts[1].strip() if len(parts) > 1 else ""
+                tldr_raw = parts[2].strip() if len(parts) > 2 else ""
+                editorial_prospect = parts[3].strip() if len(parts) > 3 else "We analyze the intersection of logistics, automation, and AI to deliver actionable insights for modern businesses. No hype, just practical strategy."
                 
                 # Clean up Facebook message - remove any instruction labels or formatting indicators
                 # Remove common AI output labels
@@ -142,15 +164,37 @@ class NewsProcessor:
                 
                 facebook_msg = facebook_msg.strip()
                 
+                # Process TL;DR - format as HTML bullet list
+                tldr_html = ""
+                if tldr_raw:
+                    # Clean up labels
+                    tldr_raw = tldr_raw.replace('**OUTPUT 3:**', '').replace('OUTPUT 3:', '')
+                    tldr_raw = tldr_raw.replace('**TL;DR:**', '').replace('TL;DR:', '').strip()
+                    
+                    # Split into bullets and format
+                    bullets = [line.strip() for line in tldr_raw.split('\n') if line.strip()]
+                    if bullets:
+                        tldr_html = "<ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'>" 
+                        for bullet in bullets:
+                            tldr_html += f"<li style='margin-bottom: 0.75rem;'>{bullet}</li>"
+                        tldr_html += "</ul>"
+                
+                if not tldr_html:
+                    # Fallback
+                    tldr_html = "Key insights and actionable takeaways to stay ahead in the AI landscape."
+                
                 return {
                     "blog_html": blog_html,
-                    "facebook_msg": facebook_msg
+                    "facebook_msg": facebook_msg,
+                    "tldr_summary": tldr_html,
+                    "editorial_prospect": editorial_prospect
                 }
             else:
                 # Fallback if AI forgets delimiter
                 return {
                     "blog_html": f"<p>{text}</p>",
-                    "facebook_msg": "New AI Update! Check our blog. [LINK]"
+                    "facebook_msg": "New AI Update! Check our blog. [LINK]",
+                    "tldr_summary": "Key insights from this AI development."
                 }
 
         except Exception as e:

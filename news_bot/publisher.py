@@ -1,3 +1,4 @@
+
 import requests
 from .settings import FB_PAGE_ACCESS_TOKEN, FB_PAGE_ID
 
@@ -29,7 +30,7 @@ class FacebookPublisher:
             response = requests.post(url, data=payload)
             response.raise_for_status()
             data = response.json()
-            print(f"✅ Successfully posted to Facebook! Post ID: {data.get('id')}")
+            print(f"Successfully posted to Facebook! Post ID: {data.get('id')}")
             return data.get('id')
         except requests.exceptions.RequestException as e:
             self._handle_error(e, response if 'response' in locals() else None)
@@ -55,16 +56,16 @@ class FacebookPublisher:
         
         for attempt in range(max_retries):
             try:
-                print(f"🔍 Verifying image URL accessibility (attempt {attempt + 1}/{max_retries})...")
+                print(f"Verifying image URL accessibility (attempt {attempt + 1}/{max_retries})...")
                 img_response = requests.head(photo_url, timeout=10)
                 if img_response.status_code == 200:
-                    print(f"✅ Image is ready!")
+                    print(f"Image is ready!")
                     break
                 else:
-                    print(f"⚠️ Image not ready yet (status {img_response.status_code}), waiting {retry_delay}s...")
+                    print(f"Image not ready yet (status {img_response.status_code}), waiting {retry_delay}s...")
                     time.sleep(retry_delay)
             except Exception as e:
-                print(f"⚠️ Image check failed: {e}, waiting {retry_delay}s...")
+                print(f"Image check failed: {e}, waiting {retry_delay}s...")
                 time.sleep(retry_delay)
         
         # Now post to Facebook
@@ -78,7 +79,7 @@ class FacebookPublisher:
             response = requests.post(url, data=payload, timeout=30)
             response.raise_for_status()
             data = response.json()
-            print(f"📸 Successfully posted photo to Facebook! ID: {data.get('id')}")
+            print(f"Successfully posted photo to Facebook! ID: {data.get('id')}")
             return data.get('id')
         except requests.exceptions.RequestException as e:
             self._handle_error(e, response if 'response' in locals() else None)
@@ -98,7 +99,7 @@ class FacebookPublisher:
         try:
             import os
             video_size = os.path.getsize(video_path)
-            print(f"🎬 Uploading video to Facebook...")
+            print(f"Uploading video to Facebook...")
             print(f"   Video size: {video_size:,} bytes")
             
             with open(video_path, 'rb') as video_file:
@@ -112,12 +113,12 @@ class FacebookPublisher:
                 response.raise_for_status()
                 
                 video_data = response.json()
-                print(f"✅ Successfully posted video!")
+                print(f"Successfully posted video!")
                 print(f"Video ID: {video_data.get('id')}")
                 return video_data.get('id')
                     
         except Exception as e:
-            print(f"❌ Video upload error: {e}")
+            print(f"Video upload error: {e}")
             if 'response' in locals():
                 self._handle_error(e, response)
             return None
@@ -135,7 +136,7 @@ class FacebookPublisher:
             import os
             video_size = os.path.getsize(video_path)
             
-            print(f"🎬 Uploading reel to Facebook (3-phase upload)...")
+            print(f"Uploading reel to Facebook (3-phase upload)...")
             print(f"   Video size: {video_size:,} bytes")
             
             # PHASE 1: Initialize upload session
@@ -155,10 +156,10 @@ class FacebookPublisher:
             upload_session_id = init_result.get('upload_session_id')
             
             if not video_id or not upload_session_id:
-                print(f"❌ Failed to initialize upload: {init_result}")
+                print(f"Failed to initialize upload: {init_result}")
                 return None
             
-            print(f"   ✅ Session ID: {upload_session_id}")
+            print(f"   Session ID: {upload_session_id}")
             
             # PHASE 2: Upload video file
             print("   Phase 2: Uploading video file...")
@@ -176,7 +177,7 @@ class FacebookPublisher:
                 upload_response.raise_for_status()
                 upload_result = upload_response.json()
             
-            print(f"   ✅ Video uploaded")
+            print(f"   Video uploaded")
             
             # PHASE 3: Finalize and publish
             print("   Phase 3: Publishing reel...")
@@ -193,15 +194,15 @@ class FacebookPublisher:
             finish_result = finish_response.json()
             
             if finish_result.get('success'):
-                print(f"✅ Successfully posted Reel!")
+                print(f"Successfully posted Reel!")
                 print(f"Reel ID: {video_id}")
                 return video_id
             else:
-                print(f"❌ Failed to finalize: {finish_result}")
+                print(f"Failed to finalize: {finish_result}")
                 return None
                     
         except Exception as e:
-            print(f"❌ Reel upload error: {e}")
+            print(f"Reel upload error: {e}")
             if 'init_response' in locals():
                 self._handle_error(e, init_response)
             elif 'upload_response' in locals():
@@ -211,7 +212,7 @@ class FacebookPublisher:
             return None
 
     def _handle_error(self, exception, response):
-        print(f"❌ Error posting to Facebook: {exception}")
+        print(f"Error posting to Facebook: {exception}")
         if response is not None:
             with open("fb_error.txt", "w", encoding="utf-8") as f:
                 f.write(response.text)

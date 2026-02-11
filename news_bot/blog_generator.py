@@ -352,7 +352,7 @@ class BlogGenerator:
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(post_html)
             
-        print(f"✅ Blog post created: {filepath}")
+        print(f"Blog post created: {filepath}")
         return filename
 
     def update_index(self, title, summary, filename, image_url=None):
@@ -361,7 +361,7 @@ class BlogGenerator:
         This ensures the new post is correctly categorized and added to all relevant pages.
         """
         import subprocess
-        print("🔄 Rebuilding site structure (Index + Categories)...")
+        print("Rebuilding site structure (Index + Categories)...")
         
         # Path to generate_categories.py (assumed to be in project root)
         # We need to find the root directory relative to this file
@@ -371,9 +371,9 @@ class BlogGenerator:
         
         try:
             subprocess.run(["python", script_path], check=True, cwd=project_root)
-            print("✅ Site rebuild complete.")
+            print("Site rebuild complete.")
         except Exception as e:
-            print(f"❌ Error rebuilding site: {e}")
+            print(f"Error rebuilding site: {e}")
 
     def deploy_to_github(self):
         """
@@ -381,7 +381,7 @@ class BlogGenerator:
         """
         import subprocess
         
-        print("☁️ Auto-Deploying to GitHub...")
+        print("Auto-Deploying to GitHub...")
         try:
             # 1. Add changes
             subprocess.run(["C:\\Program Files\\Git\\cmd\\git.exe", "add", "."], check=True)
@@ -390,16 +390,16 @@ class BlogGenerator:
             try:
                 subprocess.run(["C:\\Program Files\\Git\\cmd\\git.exe", "commit", "-m", "Auto-publish new article"], check=True)
             except subprocess.CalledProcessError:
-                print("⚠️ Nothing to commit (files already exist). Proceeding to push...")
+                print("Nothing to commit (files already exist). Proceeding to push...")
             
             # 3. Push
             # Note: This relies on your cached credentials.
             subprocess.run(["C:\\Program Files\\Git\\cmd\\git.exe", "push"], check=True)
             
-            print("✅ Successfully deployed to https://aicorelogic-ops.github.io/ai-core-logic/")
+            print("Successfully deployed to https://aicorelogic-ops.github.io/ai-core-logic/")
             return True
         except Exception as e:
-            print(f"❌ Deploy failed: {e}")
+            print(f"Deploy failed: {e}")
             return False
 
 if __name__ == "__main__":

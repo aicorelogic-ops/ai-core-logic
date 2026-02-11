@@ -8,7 +8,7 @@ from .article_tracker import ArticleTracker
 from .image_design_helper import analyze_article_visual_context, create_news_overlay_prompt
 
 def run_bot():
-    print("🤖 Starting AI Core Logic News Bot...")
+    print("Starting AI Core Logic News Bot...")
 
     # Initialize tracker
     tracker = ArticleTracker()
@@ -17,14 +17,14 @@ def run_bot():
     collector = NewsCollector()
     # Using 72 hours window for testing to ensure we find something
     articles = collector.fetch_news(hours_back=72)
-    print(f"📥 Found {len(articles)} potential articles.")
+    print(f"Found {len(articles)} potential articles.")
 
     if not articles:
-        print("😴 No new articles found. Sleeping.")
+        print("No new articles found. Sleeping.")
         return
 
     # 2. Score Articles for Viral Potential (Select BEST, not newest)
-    print("🎯 Scoring articles for viral potential...")
+    print("Scoring articles for viral potential...")
     
     def score_viral_potential(article):
         # (existing scoring logic unchanged)
@@ -33,7 +33,7 @@ def run_bot():
             from .settings import GOOGLE_API_KEY
             
             genai.configure(api_key=GOOGLE_API_KEY)
-            model = genai.GenerativeModel('gemini-2.0-flash-exp')
+            model = genai.GenerativeModel('gemini-flash-latest')
             
             prompt = f"""Score this article for VIRAL POTENTIAL in the logistics/business automation niche (0-100).
 
@@ -54,7 +54,7 @@ Return ONLY a number 0-100. No explanation."""
             score = int(response.text.strip())
             return max(0, min(100, score))  # Clamp between 0-100
         except Exception as e:
-            print(f"⚠️ Scoring error: {e}")
+            print(f"Scoring error: {e}")
             return 50  # Default middle score if error
     
     # Score all articles
@@ -62,20 +62,20 @@ Return ONLY a number 0-100. No explanation."""
     for article in articles:
         # Check if already processed
         if tracker.is_processed(article['link']):
-            print(f"  ⏭️ Skipping score for processed article: {article['title'][:60]}...")
+            print(f"  Skipping score for processed article: {article['title'][:60].encode('ascii', 'ignore').decode('ascii')}...")
             continue
             
         score = score_viral_potential(article)
         articles_with_scores.append((article, score))
-        print(f"  📊 '{article['title'][:60]}...' → Score: {score}")
+        print(f"  '{article['title'][:60].encode('ascii', 'ignore').decode('ascii')}...' -> Score: {score}")
     
     if not articles_with_scores:
-        print("😴 All found articles have already been processed. Nothing to do.")
+        print("All found articles have already been processed. Nothing to do.")
         return
 
     # Select the HIGHEST scoring article
     best_article, best_score = max(articles_with_scores, key=lambda x: x[1])
-    print(f"\n🏆 Selected BEST article (Score: {best_score}): {best_article['title']}\n")
+    print(f"\nSelected BEST article (Score: {best_score}): {best_article['title'].encode('ascii', 'ignore').decode('ascii')}\n")
     
     # 3. Process & Publish the BEST article
     processor = NewsProcessor()
@@ -86,7 +86,7 @@ Return ONLY a number 0-100. No explanation."""
     # Process only the BEST article (highest viral score)
     for article in [best_article]:  # Process only the winner
 
-        print(f"📝 Processing: {article['title']}")
+        print(f"Processing: {article['title'].encode('ascii', 'ignore').decode('ascii')}")
         
         # Generates DICT: {'blog_html': ..., 'facebook_msg': ...}
         content_package = processor.summarize(article)
@@ -97,7 +97,9 @@ Return ONLY a number 0-100. No explanation."""
                 article['title'], 
                 content_package['blog_html'], 
                 article['link'],
-                image_url=article.get('image_url')
+                image_url=article.get('image_url'),
+                tldr_summary=content_package.get('tldr_summary'),
+                editorial_prospect=content_package.get('editorial_prospect')
             )
             
             # B. Update Index
@@ -118,29 +120,46 @@ Return ONLY a number 0-100. No explanation."""
             is_deployed = blog_gen.deploy_to_github()
             
             if not is_deployed:
-                print("⚠️ GitHub deploy reported failure (might just be 'no changes'), proceeding anyway...")
+                print("GitHub deploy reported failure (might just be 'no changes'), proceeding anyway...")
 
             # E. Post Viral Photo to Facebook
-            print(f"🚀 Publishing to Facebook as viral photo post...")
+            print(f"Publishing to Facebook as viral photo post...")
             
             fb_caption = content_package['facebook_msg'].replace("[LINK]", blog_url)
             image_idea = ""
             
-            # Extract Image Design specs if provided by AI (NEW format: || Image Design:)
+            # Extract Image Design/Idea specs - handle multiple formats
+            # Format 1: || Image Design: (preferred)
             if "|| Image Design:" in fb_caption:
                 parts = fb_caption.split("|| Image Design:")
                 fb_caption = parts[0].strip()
                 image_idea = parts[1].strip()
-            # Fallback to old format for compatibility
+            # Format 2: || Image Idea: (legacy)
             elif "|| Image Idea:" in fb_caption:
                 parts = fb_caption.split("|| Image Idea:")
                 fb_caption = parts[0].strip()
                 image_idea = parts[1].strip()
+            # Format 3: Image Idea: (AI forgot delimiter)
+            elif "Image Idea:" in fb_caption:
+                parts = fb_caption.split("Image Idea:")
+                fb_caption = parts[0].strip()
+                image_idea = parts[1].strip()
+            # Format 4: Image Design: (AI forgot delimiter)
+            elif "Image Design:" in fb_caption:
+                parts = fb_caption.split("Image Design:")
+                fb_caption = parts[0].strip()
+                image_idea = parts[1].strip()
+            
+            # Final cleanup: remove any remaining image-related instruction text
+            import re
+            fb_caption = re.sub(r'\s*\|\|\s*Image (Design|Idea):.*$', '', fb_caption, flags=re.IGNORECASE | re.DOTALL)
+            fb_caption = re.sub(r'\s*Image (Design|Idea):.*$', '', fb_caption, flags=re.IGNORECASE | re.DOTALL)
+            fb_caption = fb_caption.strip()
             
             import urllib.parse
             
             # NEW APPROACH: Use news overlay style inspired by ABC News / Variety graphics
-            print(f"🎨 Analyzing article for visual design specs...")
+            print(f"Analyzing article for visual design specs...")
             design_specs = analyze_article_visual_context(article)
             print(f"   Design specs: {design_specs['category_badge']} | {design_specs['emotion_trigger']} mood")
             
@@ -167,7 +186,7 @@ Return ONLY a number 0-100. No explanation."""
             # Sleep to avoid spamming
             time.sleep(10)
         else:
-            print("❌ Failed to process article.")
+            print("Failed to process article.")
 
 if __name__ == "__main__":
     run_bot()
