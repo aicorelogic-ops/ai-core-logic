@@ -4,7 +4,7 @@ from .processor import NewsProcessor
 from .publisher import FacebookPublisher
 from .blog_generator import BlogGenerator
 from .article_tracker import ArticleTracker
-from .viral_reel_generator import ViralReelGenerator
+# from .viral_reel_generator import ViralReelGenerator  # Removed per user request
 from .image_design_helper import analyze_article_visual_context, create_news_overlay_prompt
 
 def run_bot():
@@ -81,7 +81,7 @@ Return ONLY a number 0-100. No explanation."""
     processor = NewsProcessor()
     publisher = FacebookPublisher()
     blog_gen = BlogGenerator()
-    viral_gen = ViralReelGenerator()
+    # viral_gen = ViralReelGenerator()  # Removed per user request
 
     # Process only the BEST article (highest viral score)
     for article in [best_article]:  # Process only the winner
@@ -152,17 +152,11 @@ Return ONLY a number 0-100. No explanation."""
             
             photo_post_id = publisher.post_photo(photo_url=photo_url, message=fb_caption)
             
-            # F. CREATE AND POST VIRAL REEL
-            print(f"🎬 Creating Hyper-Dopamine viral reel...")
-            reel_path = viral_gen.create_viral_reel(article, content_package['blog_html'], article.get('image_url'))
-            
+            # F. REEL GENERATION REMOVED PER USER REQUEST
+            # (Previously created and posted viral reels here)
             video_post_id = None
-            if reel_path:
-                print(f"📤 Posting viral reel to Facebook...")
-                # Also clean the caption for the video
-                video_post_id = publisher.post_video(reel_path, fb_caption)
             
-            # G. TRACK ARTICLE AS PROCESSED
+            # F. TRACK ARTICLE AS PROCESSED
             tracker.mark_as_processed(article['link'], {
                 'title': article['title'],
                 'blog_path': f"blog/posts/{filename}",

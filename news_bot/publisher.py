@@ -39,12 +39,35 @@ class FacebookPublisher:
         """
         Publishes a photo post to the Facebook Page.
         This is typically more 'attention-grabbing' than a standard link post.
+        
+        Includes retry logic for AI-generated images that may take time to render.
         """
         if not self.token or not self.page_id:
             print("Error: Missing Facebook Page Token or Page ID.")
             return None
 
         url = f"{self.base_url}/{self.page_id}/photos"
+        
+        # Pre-check: Verify image URL is accessible (important for AI-generated images)
+        import time
+        max_retries = 3
+        retry_delay = 5  # seconds
+        
+        for attempt in range(max_retries):
+            try:
+                print(f"🔍 Verifying image URL accessibility (attempt {attempt + 1}/{max_retries})...")
+                img_response = requests.head(photo_url, timeout=10)
+                if img_response.status_code == 200:
+                    print(f"✅ Image is ready!")
+                    break
+                else:
+                    print(f"⚠️ Image not ready yet (status {img_response.status_code}), waiting {retry_delay}s...")
+                    time.sleep(retry_delay)
+            except Exception as e:
+                print(f"⚠️ Image check failed: {e}, waiting {retry_delay}s...")
+                time.sleep(retry_delay)
+        
+        # Now post to Facebook
         payload = {
             "url": photo_url,
             "caption": message,
@@ -52,7 +75,7 @@ class FacebookPublisher:
         }
 
         try:
-            response = requests.post(url, data=payload)
+            response = requests.post(url, data=payload, timeout=30)
             response.raise_for_status()
             data = response.json()
             print(f"📸 Successfully posted photo to Facebook! ID: {data.get('id')}")
