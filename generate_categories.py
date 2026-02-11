@@ -88,22 +88,27 @@ def generate_page(filename, posts, active_filter, page_title):
     # Replace existing header-right div
     template = re.sub(r'<div class="header-right">.*?</div>', nav_replacement, template, flags=re.DOTALL)
     
-    # 2. Update Filter Bar Active State
-    # Reset all to inactive
+    # 2. Update Filter Bar Links & Active State
+    
+    # First, strip any existing "active" classes
     template = re.sub(r'class="active"', '', template)
     
-    # Set new active
-    if active_filter == "All":
-        template = template.replace('<a href="index.html">All</a>', '<a href="index.html" class="active">All</a>')
-    else:
-        template = template.replace(f'<a href="{filename}">{active_filter}</a>', f'<a href="{filename}" class="active">{active_filter}</a>')
-        
-    # Update links (point to specific html files)
+    # Ensure "All" link points to index.html (handle various spacing)
+    template = re.sub(r'<a href="#"\s*>All</a>', '<a href="index.html">All</a>', template)
+    
+    # Ensure other category links are correct (if they were reset to #)
     template = template.replace('<a href="#">Automation</a>', '<a href="automation.html">Automation</a>')
     template = template.replace('<a href="#">Logistics</a>', '<a href="logistics.html">Logistics</a>')
     template = template.replace('<a href="#">Intelligence</a>', '<a href="intelligence.html">Intelligence</a>')
     template = template.replace('<a href="#">Tech Stack</a>', '<a href="tech-stack.html">Tech Stack</a>')
-    template = template.replace('<a href="#" class="active">All</a>', '<a href="index.html">All</a>')
+
+    # Now set the new active class
+    if active_filter == "All":
+        template = template.replace('<a href="index.html">All</a>', '<a href="index.html" class="active">All</a>')
+    else:
+        # Use regex to safely find the link and add class
+        # (simpler string replace might fail if attributes are reordered, but for now exact match is likely fine if we just generated it)
+        template = template.replace(f'<a href="{filename}">{active_filter}</a>', f'<a href="{filename}" class="active">{active_filter}</a>')
     
     # 3. Generate Post Grid
     posts_html = ""
@@ -231,6 +236,7 @@ def generate_about_page():
         <p>&copy; 2026 AI Core Logic. Integrating Intelligence.</p>
     </footer>
 
+    <script src="js/search.js"></script>
 </body>
 </html>"""
     
