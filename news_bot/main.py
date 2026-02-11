@@ -189,10 +189,17 @@ Return ONLY a number 0-100. No explanation."""
             final_image_prompt = create_news_overlay_prompt(article, design_specs, image_idea)
             
             # Sanitize prompt for URL (Pollinations doesn't like newlines or excessive length)
-            clean_prompt = final_image_prompt.replace('\n', ' ').replace('\r', '').replace('  ', ' ').strip()
+            # clean_prompt = final_image_prompt.replace('\n', ' ').replace('\r', '').replace('  ', ' ').strip()
+            
+            # Regex is safer for all whitespace including newlines
+            import re
+            clean_prompt = re.sub(r'\s+', ' ', final_image_prompt).strip()
+            
             # Limit to 800 chars to be safe (URL limits)
             if len(clean_prompt) > 800:
                 clean_prompt = clean_prompt[:800]
+
+            print(f"DEBUG: Clean Prompt: {clean_prompt[:100]}...")
             
             safe_prompt = urllib.parse.quote(clean_prompt)
             photo_url = f"https://image.pollinations.ai/prompt/{safe_prompt}?width=1200&height=630&nologo=true"
