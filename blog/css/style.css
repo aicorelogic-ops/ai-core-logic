@@ -2,27 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Outfit:wght@200;500;800&family=Space+Grotesk:wght@300;500;700&display=swap');
 
 :root {
-    /* Brand Colors - High Contrast White Background */
-    --bg-deep: #FFFFFF;
-    --bg-card: #F9FAFB;
-    --bg-header: rgba(255, 255, 255, 0.95);
-    --border-color: #E5E7EB;
+    /* Brand Colors - "Soft Dark" Readability Palette */
+    --bg-deep: #0A0E14;
+    /* Deep Charcoal Sky */
+    --bg-card: #141B24;
+    /* Layered Charcoal */
+    --bg-header: rgba(10, 14, 20, 0.9);
+    --border-color: rgba(255, 255, 255, 0.08);
 
-    /* Accents */
-    --accent-mint: #2D3748;
-    /* Darker for better contrast on white */
-    --accent-glow: rgba(0, 0, 0, 0.05);
-    --accent-cyan: #2B6CB0;
+    /* Accents - Modernized for Dark Theme */
+    --accent-mint: #98E2C6;
+    --accent-glow: rgba(0, 240, 255, 0.15);
+    --accent-cyan: #00F0FF;
 
     /* Text - High Contrast for Readability */
-    --text-primary: #000000;
-    --text-secondary: #2D3748;
-    --text-muted: #4A5568;
+    --text-primary: #F8FAFC;
+    /* Crisp Off-White */
+    --text-secondary: #CBD5E1;
+    /* Slate Gray */
+    --text-muted: #94A3B8;
 
     /* Typography - "High Readability" Selection */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Verdana', sans-serif;
-    /* As per best practices */
     --font-mono: 'Space Mono', monospace;
 }
 
@@ -92,7 +94,8 @@ header {
 
 /* Summary Box Styling */
 .quick-summary {
-    background-color: #F7FAFC;
+    background-color: rgba(0, 240, 255, 0.05);
+    /* Soft Cyan Tint */
     border-left: 5px solid var(--accent-cyan);
     padding: 1.5rem;
     margin: 2rem 0;
@@ -227,14 +230,14 @@ footer {
 .hero-content h1 {
     font-family: var(--font-heading);
     font-size: 5rem;
-    font-weight: 500;
+    font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
     margin-bottom: 2rem;
     color: var(--text-primary);
     background: none;
     -webkit-text-fill-color: initial;
-    text-shadow: none;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Specific coloring for "AI" in the title to be Mint */
@@ -269,8 +272,8 @@ footer {
     height: 40px;
     width: auto;
     object-fit: contain;
-    /* Inverted logo might be needed if original was white-on-transparent */
-    filter: brightness(0);
+    /* Reverted filter for dark mode visibility */
+    filter: none;
 }
 
 /* Pill Buttons - High Contrast */
@@ -287,18 +290,19 @@ footer {
 }
 
 .cta-button.primary {
-    background: #000000;
-    color: #FFFFFF;
+    background: var(--accent-cyan);
+    color: #000000;
 }
 
 .cta-button.primary:hover {
-    background: var(--accent-cyan);
+    background: #FFFFFF;
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
 }
 
 .cta-button.secondary {
-    border: 2px solid #000000;
-    color: #000000;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
     background: transparent;
 }
 
@@ -320,7 +324,7 @@ footer {
 }
 
 .nav-center a:hover {
-    color: #000000;
+    color: var(--accent-cyan);
 }
 
 /* --- Inspiration Match: Filter Bar --- */
