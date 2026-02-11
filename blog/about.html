@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AI Core Logic</title>
+    <link rel="stylesheet" href="css/style.css?v=6">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .about-hero { text-align: center; margin-bottom: 4rem; }
+        .about-hero h1 { font-size: 3.5rem; background: linear-gradient(to right, #fff, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        .mission-box { background: rgba(0, 240, 255, 0.05); border-left: 4px solid #00F0FF; padding: 2rem; border-radius: 8px; margin: 3rem 0; }
+        .contact-form { background: #0F1419; padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; color: #94A3B8; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 1rem; background: #050507; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 6px; font-family: 'Outfit'; transition: border-color 0.2s; }
+        .form-control:focus { outline: none; border-color: #00F0FF; }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+        .submit-btn { width: 100%; background: #00F0FF; color: #000; font-weight: 700; padding: 1rem; border: none; border-radius: 6px; cursor: pointer; transition: transform 0.2s; font-size: 1.1rem; }
+        .submit-btn:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="index.html" class="logo-link" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="assets/brand-logo.png" alt="AI Core Logic" style="height: 40px; border-radius: 4px;">
+                <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: #F8FAFC;">AI.CORE <span style="color: #00F0FF;">LOGIC</span></span>
+            </a>
+        </div>
+        <div class="header-right">
+             <a href="index.html" class="nav-link" style="color: #94A3B8; text-decoration: none; font-weight: 500;">Home</a>
+        </div>
+    </header>
+
+    <main class="about-container">
+        <div class="about-hero">
+            <h1>Logic Over Hype.</h1>
+            <p style="font-size: 1.25rem; color: #94A3B8;">We build the systems that build the future.</p>
+        </div>
+
+        <div class="article-body" style="font-size: 1.15rem; line-height: 1.8; color: #CBD5E1;">
+            <p>At <strong>AI Core Logic</strong>, we believe that Artificial Intelligence isn't magic—it's engineering. While the world chases the latest shiny chatbot, we are focused on the infrastructure of autonomy.</p>
+            
+            <p>Our roots are in <strong>Logistics</strong> and <strong>High-Scale Automation</strong>. We know what happens when systems break, and we know exactly how to build them so they don't.</p>
+
+            <div class="mission-box">
+                <h3 style="color: #00F0FF; margin-top: 0;">Our Mission</h3>
+                <p style="margin-bottom: 0;">To demystify AI for modern businesses and provide the architectural logic needed to scale without chaos. We don't just write about code; we deploy it.</p>
+            </div>
+
+            <h2>Why Us?</h2>
+            <p>We combine deep technical expertise in <strong>Python, Cloud Architecture, and LLM Orchestration</strong> with real-world business strategy. We translate "AI buzzwords" into "Bottom-line results".</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-form" id="contact">
+            <h2 style="color: #fff; margin-top: 0; margin-bottom: 0.5rem;">Partner With Us</h2>
+            <p style="color: #94A3B8; margin-bottom: 2rem;">Ready to optimize your logic? Tell us what you're building.</p>
+            
+            <form action="mailto:consulting@aicorelogic.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Jane Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="jane@company.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Computed Needs (How can we help?)</label>
+                    <textarea name="needs" class="form-control" placeholder="I need to automate my dispatch workflow..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Schedule Consulting Appointment</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-big-text">AI.Core Logic</div>
+        <p>&copy; 2026 AI Core Logic. Integrating Intelligence.</p>
+    </footer>
+
+</body>
+</html>
