@@ -126,6 +126,7 @@ header {
     margin-bottom: 1.5rem;
     position: relative;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     background: linear-gradient(135deg, #1e293b, #0f172a);

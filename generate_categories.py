@@ -138,21 +138,58 @@ def generate_page(filename, posts, active_filter, page_title):
         template = template.replace(f'<a href="{filename}">{active_filter}</a>', f'<a href="{filename}" class="active">{active_filter}</a>')
     
     # 3. Generate Post Grid
-    brand_fallback = "assets/brand-logo.png"
+    
+    # Available Local Assets (Generic Tech/AI visuals)
+    LOCAL_ASSETS = [
+        "assets/photo_2026-02-06_16-51-45.jpg",
+        "assets/photo_2026-02-06_16-51-47.jpg",
+        "assets/photo_2026-02-06_16-51-50.jpg",
+        "assets/photo_2026-02-06_16-51-52.jpg",
+        "assets/photo_2026-02-06_16-51-54.jpg",
+        "assets/photo_2026-02-06_16-51-57.jpg",
+        "assets/photo_2026-02-06_16-51-59.jpg",
+        "assets/photo_2026-02-06_16-52-02.jpg",
+        "assets/photo_2026-02-06_16-52-04.jpg",
+        "assets/photo_2026-02-06_16-52-07.jpg",
+        "assets/photo_2026-02-06_16-52-09.jpg",
+        "assets/photo_2026-02-06_16-52-17.jpg"
+    ]
+    
+    # Manual Overrides (Filename -> Specific Asset)
+    IMAGE_OVERRIDES = {
+        # Musk - Swapping from 54 (Our Team) to 17 (Generic Dark/Market)
+        "2026-02-10-why-has-elon-musk-merged-his-rocket-company-with-h.html": "assets/photo_2026-02-06_16-52-17.jpg",
+        # US Software Stocks - Using 47
+        "2026-02-10-us-software-stocks-tumble-sparks-concerns-that-ai-.html": "assets/photo_2026-02-06_16-51-47.jpg",
+    }
 
     posts_html = ""
     for post in posts:
-        # Check if image is missing, a placeholder, or a known broken Pollinations URL
-        if not post['image_url'] or "via.placeholder.com" in post['image_url'] or "pollinations.ai" in post['image_url']:
-            bg_image = brand_fallback
+        bg_image = ""
+        
+        # 1. Check Manual Overrides First
+        if post['filename'] in IMAGE_OVERRIDES:
+            bg_image = IMAGE_OVERRIDES[post['filename']]
         else:
+            # 2. Use Extracted Image if valid
             bg_image = post['image_url']
-            
-        # FIX: Resolve relative paths for Index/Category pages
-        # If the post uses "../assets/", it works for the post file (in blog/posts/)
-        # But for index.html (in blog/), it needs "assets/"
-        if bg_image.startswith("../assets/"):
+        
+        # 3. Validation: Check for broken providers
+        if bg_image and ("via.placeholder.com" in bg_image or "pollinations.ai" in bg_image):
+            bg_image = "" 
+
+        # 4. Resolve relative paths
+        if bg_image and bg_image.startswith("../assets/"):
             bg_image = bg_image.replace("../assets/", "assets/")
+            
+        # 5. Fallback: If still empty, deterministically assign a local asset
+        if not bg_image:
+             # Use hash of title to pick a consistent random image from LOCAL_ASSETS
+             # This ensures the same post always gets the same image, but different posts get different images
+             asset_index = hash(post['title']) % len(LOCAL_ASSETS)
+             bg_image = LOCAL_ASSETS[asset_index]
+             
+        print(f"Post: {post['filename']} | Image: {bg_image}") # DEBUG
 
         posts_html += f"""
         <article class="article-card">
