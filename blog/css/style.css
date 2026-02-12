@@ -124,12 +124,13 @@ header {
     border-radius: 16px;
     margin-bottom: 1.5rem;
     position: relative;
+
+    /* Order matters! Shorthand first, then specifics */
+    background: linear-gradient(135deg, #1e293b, #0f172a);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    /* Default Fallback */
 }
 
 /* Specific Gradient Classes for fallback diversity */
