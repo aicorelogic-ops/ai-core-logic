@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How private equity’s big bet on software got derailed by AI | AI Core Logic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00F0FF;
+            --secondary: #7000FF;
+            --bg: #050507;
+            --surface: #0F1419;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: url('https://images.ft.com/v3/image/raw/https:/d1e00ek4ebabms.cloudfront.net/production/2f3f182d-7731-4705-830e-335558d1d74e.jpg?source=next-barrier-page') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+        }
+        
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .category-pill {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Key Takeaways Box (NEW) */
+        .quick-summary {
+            background: rgba(0, 240, 255, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
+        
+        /* Article Body */
+        .article-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #CBD5E1;
+        }
+        
+        .article-body h2 {
+            color: #fff;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: var(--primary);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="logo">
+        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="hero-content">
+        <span class="category-pill">AI Market Analysis</span>
+        <h1>How private equity’s big bet on software got derailed by AI</h1>
+        <div class="meta-info">
+            <span>2026-02-12</span>
+            <span>•</span>
+            <span>2 min read</span>
+        </div>
+    </div>
+</header>
+
+<main class="article-container">
+    <!-- Quick Summary Section -->
+    <div class="quick-summary">
+        <strong>💡 Key TakeAways:</strong> 
+        <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'><li style='margin-bottom: 0.75rem;'>Private equity firms face a massive valuation collapse as AI renders traditional SaaS business models and moats completely obsolete.</li><li style='margin-bottom: 0.75rem;'>The shift creates a Darwinian environment where legacy software companies must integrate generative AI or face immediate extinction by automated rivals.</li><li style='margin-bottom: 0.75rem;'>Investors must urgently pivot from seat-based revenue models to AI-native architectures to survive this unprecedented digital service disruption.</li></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="article-body">
+        <section>
+  <h1>$500 Billion Is About To Evaporate From The Software Market</h1>
+
+  <p>Your "safe" software investments are walking into a slaughterhouse.</p>
+
+  <p><strong>PREVIEW:</strong> This post reveals how Artificial Intelligence is currently dismantling the private equity "sure thing" and why legacy software is a dying breed.</p>
+  <p><strong>PROOF:</strong> Financial giants and dealmakers are calling this a "Darwinian moment" as AI makes traditional digital services obsolete overnight.</p>
+  <p><strong>TRANSITION:</strong> If you want to protect your capital, you need to understand the new rules of the AI jungle.</p>
+
+  <h2>The Great Software Massacre Is Happening Right Now</h2>
+  <p>Private equity firms spent the last decade buying up every software company they could find. They thought recurring revenue was a guaranteed gold mine. They were wrong.</p>
+  <p>Generative AI has arrived to commoditize code and kill the "moats" these companies relied on. Now, lenders and dealmakers are watching their valuations go up in smoke as lean AI startups do for free what used to cost millions.</p>
+
+  <h2>3 Reasons Your Tech Portfolio Is In Mortal Danger</h2>
+  <ul>
+    <li><strong>Code Is No Longer An Asset:</strong> AI can now write in seconds what used to take teams of expensive developers months to build.</li>
+    <li><strong>The End Of Seat-Based Pricing:</strong> When one AI agent does the work of 50 humans, the "per-user" revenue model collapses.</li>
+    <li><strong>Zero Switching Costs:</strong> AI makes it trivial for customers to migrate data and functions to cheaper, faster competitors.</li>
+  </ul>
+
+  <h3>The Darwinian Filter For Digital Services</h3>
+  <p>We are entering a period of "Survival of the Smartest." Companies that rely on legacy processes are being hunted by AI-native challengers. If your software doesn't have a unique data advantage, it is already dead.</p>
+
+  <h3>Why Private Equity Is Panicking</h3>
+  <p>Debt is getting expensive and the underlying assets are losing their value. This is a "code red" situation for anyone holding mid-market SaaS companies. The blood is in the water, and the sharks are the AI models.</p>
+
+  <h2>The AI Core Logic Survival Strategy</h2>
+  <p>You cannot fight this tide with old playbooks. You must pivot to AI-first architectures or prepare for liquidation. We help firms identify the rot and rebuild on solid AI ground before the floor falls out.</p>
+
+  <p><strong>TRANSITION:</strong> The window to exit legacy positions is slamming shut.</p>
+  <p><strong>ASK:</strong> Is your business an AI predator or is it the prey?</p>
+  <p><strong>CALL TO ACTION:</strong> Download our "AI Defensive Playbook" now to audit your portfolio before the next market correction.</p>
+</section>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        
+        <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
+        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"The bottom line is that the SaaS "moat" just evaporated. For years, private equity rode the high of recurring revenue, but GenAI just commoditized their entire codebases. Here’s the thing: if your business model relies on humans doing what a simple prompt can now do, you're not just behind—you're already extinct. You need to adapt or exit."</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="../index.html" class="back-btn">← Back to News Feed</a>
+</main>
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+    };
+</script>
+
+<footer>
+    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+</footer>
+</body>
+</html>
+        
