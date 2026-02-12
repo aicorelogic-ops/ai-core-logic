@@ -23,8 +23,14 @@ def get_posts():
             content = f.read()
             
         # Extract metadata...
-        title_match = re.search(r'<title>(.*?) \|', content)
-        title = title_match.group(1) if title_match else filepath.stem
+        # Use DOTALL to match titles traversing multiple lines
+        title_match = re.search(r'<title>(.*?) \|', content, re.DOTALL)
+        if title_match:
+            title = title_match.group(1).strip().replace('\n', ' ')
+            # Collapse multiple spaces
+            title = re.sub(r'\s+', ' ', title)
+        else:
+            title = filepath.stem
         
         # Image Extraction Strategy (Fallback Logic)
         image_url = ""
@@ -138,23 +144,15 @@ def generate_page(filename, posts, active_filter, page_title):
     for post in posts:
         # Check if image is missing, a placeholder, or a known broken Pollinations URL
         if not post['image_url'] or "via.placeholder.com" in post['image_url'] or "pollinations.ai" in post['image_url']:
-            # Use local brand logo as fallback
-            # Note: We need to make sure the path is relative to the key pages (index.html, etc.)
-            # index.html is in root, assets is in blog/assets? 
-            # Wait, the structure is:
-            # root/index.html -> blog/assets/... NO.
-            # root/blog/assets/... 
-            # Let's check where the pages are generated.
-            # generate_categories.py generates pages in `blog/` (e.g. blog/automation.html).
-            # The assets are in `blog/assets`.
-            # So `assets/brand-logo.png` is correct for pages in `blog/`.
-            # BUT index.html is also generated? 
-            # Let's check `generate_page` function. 
-            # It seems `generate_categories.py` writes to `blog/`.
-            # So `assets/brand-logo.png` works.
             bg_image = brand_fallback
         else:
             bg_image = post['image_url']
+            
+        # FIX: Resolve relative paths for Index/Category pages
+        # If the post uses "../assets/", it works for the post file (in blog/posts/)
+        # But for index.html (in blog/), it needs "assets/"
+        if bg_image.startswith("../assets/"):
+            bg_image = bg_image.replace("../assets/", "assets/")
 
         posts_html += f"""
         <article class="article-card">
