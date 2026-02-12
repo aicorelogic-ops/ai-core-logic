@@ -15,29 +15,26 @@ THEME_ASSETS = {
     "Office": "assets/theme_office.png"
 }
 
-def get_theme_image(title, category):
+def get_theme_image(title, category_raw):
     title_lower = title.lower()
     
-    # Priority Keyword Matching
+    # EXACT LOGIC FROM generate_categories.py
     if "stock" in title_lower or "market" in title_lower or "finance" in title_lower or "money" in title_lower or "investment" in title_lower:
         return THEME_ASSETS["Finance"]
+    elif "manager" in title_lower or "corporate" in title_lower or "business" in title_lower or "office" in title_lower or "job" in title_lower:
+            return THEME_ASSETS["Office"]
+    elif "code" in title_lower or "python" in title_lower or "api" in title_lower or "tech" in title_lower or "software" in title_lower:
+            return THEME_ASSETS["Tech Stack"]
+    elif "robot" in title_lower or "agent" in title_lower or "musk" in title_lower or "rocket" in title_lower:
+            return THEME_ASSETS["Automation"]
+    elif "logistics" in title_lower or "supply chain" in title_lower or "shipping" in title_lower:
+            return THEME_ASSETS["Logistics"]
     
-    if "manager" in title_lower or "corporate" in title_lower or "business" in title_lower or "office" in title_lower or "job" in title_lower:
-        return THEME_ASSETS["Office"]
-        
-    if "code" in title_lower or "python" in title_lower or "api" in title_lower or "tech" in title_lower or "software" in title_lower:
-        return THEME_ASSETS["Tech Stack"]
-
-    if "robot" in title_lower or "agent" in title_lower or "musk" in title_lower or "rocket" in title_lower:
-        return THEME_ASSETS["Automation"]
-
-    if "logistics" in title_lower or "supply chain" in title_lower or "shipping" in title_lower:
-        return THEME_ASSETS["Logistics"]
-        
-    # Category Fallback
-    if category in THEME_ASSETS:
-        return THEME_ASSETS[category]
-        
+    # Category Matching (Ensure category is mapped correctly)
+    # The raw category might be "Tech Stack" or "Tech" etc.
+    if category_raw in THEME_ASSETS:
+        return THEME_ASSETS[category_raw]
+    
     return THEME_ASSETS["Intelligence"]
 
 def update_posts():
