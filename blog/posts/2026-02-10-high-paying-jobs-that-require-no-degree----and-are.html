@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             --text: #E2E8F0;
             --text-dim: #94A3B8;
         }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -23,7 +23,7 @@
             margin: 0;
             line-height: 1.6;
         }
-        
+
         /* Navbar */
         nav {
             display: flex;
@@ -37,29 +37,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
-        
-        .logo-text span { color: var(--primary); }
-        
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
@@ -67,27 +69,29 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .article-hero {
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background: url('https://image.pollinations.ai/prompt/Smartphone%20notification%20screenshot%20style%3A%20%F0%9F%9A%A8%20ALERT%20banner%2C%20text%3A%20%27High-paying%20jobs%20that%20require%20NO%20degree...%20and%20are%20safe%20from%27%2C%20red%20and%20black%20color%20scheme%2C%20breaking%20news%20aesthetic%2C%20high%20urgency%20visual?width=1200&height=630&nologo=true') center/cover no-repeat;
+            background: url('../assets/photo_2026-02-06_16-52-09.jpg') center/cover no-repeat;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
         }
-        
+
         .article-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 7, 0.7) 50%, rgba(5, 5, 7, 0.3) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -95,7 +99,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .category-pill {
             background: rgba(0, 240, 255, 0.1);
             color: var(--primary);
@@ -109,7 +113,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        
+
         h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
@@ -118,7 +122,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta-info {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -135,8 +139,13 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
         }
-        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
-        
+
+        .quick-summary strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Article Body */
         .article-container {
             width: 90%;
@@ -144,24 +153,26 @@
             margin: 0 auto;
             padding: 4rem 0;
         }
-        
+
         .article-body {
             font-size: 1.15rem;
             line-height: 1.8;
             color: #CBD5E1;
         }
-        
+
         .article-body h2 {
             color: #fff;
             margin: 3rem 0 1.5rem 0;
             font-size: 1.75rem;
         }
-        
-        .article-body p { margin-bottom: 1.5rem; }
-        
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 0;
             text-align: center;
             margin-top: 4rem;
@@ -179,109 +190,144 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        
-        .back-btn:hover { transform: scale(1.05); }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="../index.html" class="logo">
-        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
-        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
-    </a>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-    </div>
-</nav>
-
-<header class="article-hero">
-    <div class="hero-content">
-        <span class="category-pill">AI Market Analysis</span>
-        <h1>High-paying jobs that require NO degree... and are safe from AI</h1>
-        <div class="meta-info">
-            <span>2026-02-10</span>
-            <span>•</span>
-            <span>2 min read</span>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<main class="article-container">
-    <!-- Quick Summary Section -->
-    <div class="quick-summary">
-        <strong>💡 Key TakeAways:</strong> 
-        <ul>
-<li><b>Automate the mundane:</b> Dispatching should never involve a human voice in 2026.</li>
-<li><b>Leverage the experts:</b> Keep the people who can fix the problem, fire the ones who just report it.</li>
-<li><b>Scale without hiring:</b> Double your volume without adding a single desk to your office.</li>
-</ul>
-    </div>
+    <header class="article-hero">
+        <div class="hero-content">
+            <span class="category-pill">AI Market Analysis</span>
+            <h1>High-paying jobs that require NO degree... and are safe from AI</h1>
+            <div class="meta-info">
+                <span>2026-02-10</span>
+                <span>•</span>
+                <span>2 min read</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="article-body">
-        <h3>Stop hiring college grads to push papers. You’re lighting money on fire.</h3>
+    <main class="article-container">
+        <!-- Quick Summary Section -->
+        <div class="quick-summary">
+            <strong>💡 Key TakeAways:</strong>
+            <ul>
+                <li><b>Automate the mundane:</b> Dispatching should never involve a human voice in 2026.</li>
+                <li><b>Leverage the experts:</b> Keep the people who can fix the problem, fire the ones who just report
+                    it.</li>
+                <li><b>Scale without hiring:</b> Double your volume without adding a single desk to your office.</li>
+            </ul>
+        </div>
 
-<p>While the "experts" are arguing about whether AI is going to build killer robots, your competitors are using it to <b>gut their overhead</b> and leave you in the dust. They aren't waiting for the future. They are building it while you’re still paying for "coordinators" to sit in air-conditioned offices and move data from one spreadsheet to another.</p>
+        <!-- Main Content -->
+        <div class="article-body">
+            <h3>Stop hiring college grads to push papers. You’re lighting money on fire.</h3>
 
-<p>The ivory tower is crumbling. The white-collar workers you’ve hired to manage your logistics and back-office tasks are the first ones on the chopping block. If your business relies on people pushing buttons in a CRM, <b>you are bleeding cash.</b></p>
+            <p>While the "experts" are arguing about whether AI is going to build killer robots, your competitors are
+                using it to <b>gut their overhead</b> and leave you in the dust. They aren't waiting for the future.
+                They are building it while you’re still paying for "coordinators" to sit in air-conditioned offices and
+                move data from one spreadsheet to another.</p>
 
-<h3>The Silent Profit Killer</h3>
+            <p>The ivory tower is crumbling. The white-collar workers you’ve hired to manage your logistics and
+                back-office tasks are the first ones on the chopping block. If your business relies on people pushing
+                buttons in a CRM, <b>you are bleeding cash.</b></p>
 
-<p>Look at your payroll right now. See those people in the back office? The ones "coordinating," "inputting data," and "managing schedules"? They are costing you more than just their salary. They are a massive bottleneck. Every manual entry is a mistake waiting to happen. Every "check-in call" is ten minutes of wasted time. You aren't just paying for their time; you’re paying for the <b>friction</b> they bring to your operation.</p>
+            <h3>The Silent Profit Killer</h3>
 
-<h3>What We Discovered</h3>
+            <p>Look at your payroll right now. See those people in the back office? The ones "coordinating," "inputting
+                data," and "managing schedules"? They are costing you more than just their salary. They are a massive
+                bottleneck. Every manual entry is a mistake waiting to happen. Every "check-in call" is ten minutes of
+                wasted time. You aren't just paying for their time; you’re paying for the <b>friction</b> they bring to
+                your operation.</p>
 
-<p>We’ve analyzed the shift. The "high-paying jobs safe from AI" isn’t just a feel-good headline—it’s a death warrant for the middleman. The roles that involve <b>physical execution</b> and <b>complex, boots-on-the-ground decision-making</b> are the only ones left standing. </p>
+            <h3>What We Discovered</h3>
 
-<p>In the logistics world, the "doers" are safe. The "talkers" and "trackers" are obsolete. We found that business owners who pivot to AI-led coordination while keeping a skeleton crew of high-level technicians are seeing their profit margins explode by 40% or more. They aren't hiring more people; they’re hiring <b>Core Logic.</b></p>
+            <p>We’ve analyzed the shift. The "high-paying jobs safe from AI" isn’t just a feel-good headline—it’s a
+                death warrant for the middleman. The roles that involve <b>physical execution</b> and <b>complex,
+                    boots-on-the-ground decision-making</b> are the only ones left standing. </p>
 
-<h3>The 40% Rule</h3>
+            <p>In the logistics world, the "doers" are safe. The "talkers" and "trackers" are obsolete. We found that
+                business owners who pivot to AI-led coordination while keeping a skeleton crew of high-level technicians
+                are seeing their profit margins explode by 40% or more. They aren't hiring more people; they’re hiring
+                <b>Core Logic.</b></p>
 
-<p>If you aren't automating at least 40% of your administrative workload this year, you won't exist in three. It's that simple. The "No Degree" revolution isn't about hiring cheaper labor—it's about <b>reallocating your capital</b> from human overhead to high-performance AI systems that don't sleep, don't complain, and don't make mistakes.</p>
+            <h3>The 40% Rule</h3>
 
-<ul>
-<li><b>Automate the mundane:</b> Dispatching should never involve a human voice in 2026.</li>
-<li><b>Leverage the experts:</b> Keep the people who can fix the problem, fire the ones who just report it.</li>
-<li><b>Scale without hiring:</b> Double your volume without adding a single desk to your office.</li>
-</ul>
+            <p>If you aren't automating at least 40% of your administrative workload this year, you won't exist in
+                three. It's that simple. The "No Degree" revolution isn't about hiring cheaper labor—it's about
+                <b>reallocating your capital</b> from human overhead to high-performance AI systems that don't sleep,
+                don't complain, and don't make mistakes.</p>
 
-<h3>The Prediction</h3>
+            <ul>
+                <li><b>Automate the mundane:</b> Dispatching should never involve a human voice in 2026.</li>
+                <li><b>Leverage the experts:</b> Keep the people who can fix the problem, fire the ones who just report
+                    it.</li>
+                <li><b>Scale without hiring:</b> Double your volume without adding a single desk to your office.</li>
+            </ul>
 
-<p>By 2027, the traditional logistics office will be a ghost town. You will see two types of companies: those run by <b>AI Core Logic</b> and those that are bankrupt. The "safe" jobs are the ones that touch the freight. Everything else is just data waiting to be processed by a machine that doesn't take lunch breaks.</p>
+            <h3>The Prediction</h3>
 
-<p><b>The question isn't whether your staff's jobs are safe. The question is whether your business is built to survive the purge.</b></p>
+            <p>By 2027, the traditional logistics office will be a ghost town. You will see two types of companies:
+                those run by <b>AI Core Logic</b> and those that are bankrupt. The "safe" jobs are the ones that touch
+                the freight. Everything else is just data waiting to be processed by a machine that doesn't take lunch
+                breaks.</p>
+
+            <p><b>The question isn't whether your staff's jobs are safe. The question is whether your business is built
+                    to survive the purge.</b></p>
         </div>
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
-        
-        
+
+
         <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
-        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
-             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+        <div class="author-bio"
+            style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic"
+                    style="width: 60px; height: 60px; object-fit: contain;">
                 <div>
-                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
-                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"Let's be real: your back-office "coordinators" aren't just expensive—they’re a bottleneck designed to fail in the age of AI. The hidden reality is that the white-collar middleman is now an obsolete luxury that will bankrupt your operation by 2027. If your team isn't physically touching the freight or fixing complex problems, they are just expensive friction waiting for a machine to take over."</p>
+                    <h4
+                        style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">
+                        AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">
+                        "Let's be real: your back-office "coordinators" aren't just expensive—they’re a bottleneck
+                        designed to fail in the age of AI. The hidden reality is that the white-collar middleman is now
+                        an obsolete luxury that will bankrupt your operation by 2027. If your team isn't physically
+                        touching the freight or fixing complex problems, they are just expensive friction waiting for a
+                        machine to take over."</p>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a href="../index.html" class="back-btn">← Back to News Feed</a>
-</main>
-<script>
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-    };
-</script>
 
-<footer>
-    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
-</footer>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to News Feed</a>
+    </main>
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+    </footer>
 </body>
+
 </html>
-        

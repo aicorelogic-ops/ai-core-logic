@@ -117,8 +117,11 @@ header {
 
 /* The "Image" Placeholder */
 .card-image-placeholder {
-    height: 240px;
     width: 100%;
+    /* Replaced fixed height with aspect-ratio to match 1200x630 source images */
+    /* This prevents "zoomed in" cropping */
+    height: auto;
+    aspect-ratio: 1200 / 630;
     border-radius: 16px;
     margin-bottom: 1.5rem;
     position: relative;

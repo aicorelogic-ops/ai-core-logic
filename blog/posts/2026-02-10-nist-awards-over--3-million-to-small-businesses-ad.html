@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIST Awards Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More | AI Core Logic</title>
+    <title>NIST Awards Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More
+        | AI Core Logic</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +16,7 @@
             --text: #E2E8F0;
             --text-dim: #94A3B8;
         }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -23,7 +24,7 @@
             margin: 0;
             line-height: 1.6;
         }
-        
+
         /* Navbar */
         nav {
             display: flex;
@@ -37,29 +38,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
-        
-        .logo-text span { color: var(--primary); }
-        
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
@@ -67,27 +70,29 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .article-hero {
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background: url('https://image.pollinations.ai/prompt/Smartphone%20notification%20screenshot%20style%3A%20%F0%9F%9A%A8%20ALERT%20banner%2C%20text%3A%20%27NIST%20Awards%20Over%20%243%20Million%20to%20Small%20Businesses%20Advancing%20AI%27%2C%20red%20and%20black%20color%20scheme%2C%20breaking%20news%20aesthetic%2C%20high%20urgency%20visual?width=1200&height=630&nologo=true') center/cover no-repeat;
+            background: url('../assets/photo_2026-02-06_16-52-07.jpg') center/cover no-repeat;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
         }
-        
+
         .article-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 7, 0.7) 50%, rgba(5, 5, 7, 0.3) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -95,7 +100,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .category-pill {
             background: rgba(0, 240, 255, 0.1);
             color: var(--primary);
@@ -109,7 +114,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        
+
         h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
@@ -118,7 +123,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta-info {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -135,8 +140,13 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
         }
-        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
-        
+
+        .quick-summary strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Article Body */
         .article-container {
             width: 90%;
@@ -144,24 +154,26 @@
             margin: 0 auto;
             padding: 4rem 0;
         }
-        
+
         .article-body {
             font-size: 1.15rem;
             line-height: 1.8;
             color: #CBD5E1;
         }
-        
+
         .article-body h2 {
             color: #fff;
             margin: 3rem 0 1.5rem 0;
             font-size: 1.75rem;
         }
-        
-        .article-body p { margin-bottom: 1.5rem; }
-        
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 0;
             text-align: center;
             margin-top: 4rem;
@@ -179,113 +191,146 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        
-        .back-btn:hover { transform: scale(1.05); }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="../index.html" class="logo">
-        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
-        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
-    </a>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-    </div>
-</nav>
-
-<header class="article-hero">
-    <div class="hero-content">
-        <span class="category-pill">AI Market Analysis</span>
-        <h1>NIST Awards Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More</h1>
-        <div class="meta-info">
-            <span>2026-02-10</span>
-            <span>•</span>
-            <span>2 min read</span>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<main class="article-container">
-    <!-- Quick Summary Section -->
-    <div class="quick-summary">
-        <strong>💡 Key TakeAways:</strong> 
-        <ul>
-<li><b>Automation of Routing:</b> No more "gut feelings" from dispatchers.</li>
-<li><b>Predictive Maintenance:</b> Fixing the truck before it breaks on the I-95.</li>
-<li><b>Quantum-Level Optimization:</b> Solving complex supply chain knots in seconds, not days.</li>
-</ul>
-    </div>
+    <header class="article-hero">
+        <div class="hero-content">
+            <span class="category-pill">AI Market Analysis</span>
+            <h1>NIST Awards Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and
+                More</h1>
+            <div class="meta-info">
+                <span>2026-02-10</span>
+                <span>•</span>
+                <span>2 min read</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="article-body">
-        <h3>Your competitors are weaponizing their data while you’re still wrestling with spreadsheets.</h3>
+    <main class="article-container">
+        <!-- Quick Summary Section -->
+        <div class="quick-summary">
+            <strong>💡 Key TakeAways:</strong>
+            <ul>
+                <li><b>Automation of Routing:</b> No more "gut feelings" from dispatchers.</li>
+                <li><b>Predictive Maintenance:</b> Fixing the truck before it breaks on the I-95.</li>
+                <li><b>Quantum-Level Optimization:</b> Solving complex supply chain knots in seconds, not days.</li>
+            </ul>
+        </div>
 
-<p>Right now, your dispatcher is likely leaking cash faster than a punctured fuel tank. Every missed turn, every idle hour, and every manual data entry is a <b>slow-motion robbery</b> of your profit margins.</p>
+        <!-- Main Content -->
+        <div class="article-body">
+            <h3>Your competitors are weaponizing their data while you’re still wrestling with spreadsheets.</h3>
 
-<p>Most business owners think they have a "people problem." They think they need better drivers or more staff. They’re wrong. You have a <b>logic problem</b>. While you’re struggling to keep your head above water with rising overhead, the government just handed a $3 million war chest to the very companies designed to disrupt you.</p>
+            <p>Right now, your dispatcher is likely leaking cash faster than a punctured fuel tank. Every missed turn,
+                every idle hour, and every manual data entry is a <b>slow-motion robbery</b> of your profit margins.</p>
 
-<h3>The Silent Profit Killer</h3>
+            <p>Most business owners think they have a "people problem." They think they need better drivers or more
+                staff. They’re wrong. You have a <b>logic problem</b>. While you’re struggling to keep your head above
+                water with rising overhead, the government just handed a $3 million war chest to the very companies
+                designed to disrupt you.</p>
 
-<p>The average logistics and service-based firm loses up to 30% of their operational efficiency to "human variables." That is code for: your people are guessing. They are guessing on routes. They are guessing on maintenance schedules. They are guessing on load optimization.</p>
+            <h3>The Silent Profit Killer</h3>
 
-<p>In a world of razor-thin margins, guessing is a <b>death sentence</b>. Every time a truck rolls empty or a semiconductor order is delayed, you aren’t just losing money—you’re handing your market share to someone who has already automated those decisions.</p>
+            <p>The average logistics and service-based firm loses up to 30% of their operational efficiency to "human
+                variables." That is code for: your people are guessing. They are guessing on routes. They are guessing
+                on maintenance schedules. They are guessing on load optimization.</p>
 
-<h3>What We Discovered</h3>
+            <p>In a world of razor-thin margins, guessing is a <b>death sentence</b>. Every time a truck rolls empty or
+                a semiconductor order is delayed, you aren’t just losing money—you’re handing your market share to
+                someone who has already automated those decisions.</p>
 
-<p>NIST (the National Institute of Standards and Technology) just pulled back the curtain on the future. They have officially awarded over <b>$3 million</b> to eight small businesses under the Small Business Innovation Research (SBIR) program. </p>
+            <h3>What We Discovered</h3>
 
-<p>This isn't some "pie in the sky" academic research. This is a targeted injection of capital into <b>AI, Biotechnology, and Semiconductors</b>. The government is literally subsidizing the development of the "brain" that will run the next generation of business. They are picking the winners of tomorrow, and they are picking the companies that lean into the machine.</p>
+            <p>NIST (the National Institute of Standards and Technology) just pulled back the curtain on the future.
+                They have officially awarded over <b>$3 million</b> to eight small businesses under the Small Business
+                Innovation Research (SBIR) program. </p>
 
-<h3>The 40% Rule</h3>
+            <p>This isn't some "pie in the sky" academic research. This is a targeted injection of capital into <b>AI,
+                    Biotechnology, and Semiconductors</b>. The government is literally subsidizing the development of
+                the "brain" that will run the next generation of business. They are picking the winners of tomorrow, and
+                they are picking the companies that lean into the machine.</p>
 
-<p>Why does this matter to YOUR business? Because the technology being funded today will be the industry standard tomorrow. We follow the 40% Rule: <b>AI-driven logistics and supply chain systems are projected to reduce operational overhead by 40% within the next 36 months.</b></p>
+            <h3>The 40% Rule</h3>
 
-<ul>
-<li><b>Automation of Routing:</b> No more "gut feelings" from dispatchers.</li>
-<li><b>Predictive Maintenance:</b> Fixing the truck before it breaks on the I-95.</li>
-<li><b>Quantum-Level Optimization:</b> Solving complex supply chain knots in seconds, not days.</li>
-</ul>
+            <p>Why does this matter to YOUR business? Because the technology being funded today will be the industry
+                standard tomorrow. We follow the 40% Rule: <b>AI-driven logistics and supply chain systems are projected
+                    to reduce operational overhead by 40% within the next 36 months.</b></p>
 
-<h3>The Prediction</h3>
+            <ul>
+                <li><b>Automation of Routing:</b> No more "gut feelings" from dispatchers.</li>
+                <li><b>Predictive Maintenance:</b> Fixing the truck before it breaks on the I-95.</li>
+                <li><b>Quantum-Level Optimization:</b> Solving complex supply chain knots in seconds, not days.</li>
+            </ul>
 
-<p>Within 24 months, the "middle market" will experience a mass extinction event. Logistics companies that refuse to integrate AI Core Logic into their daily operations will be priced out of the market. You cannot compete with an algorithm that doesn't sleep, doesn't take lunch breaks, and doesn't make mathematical errors.</p>
+            <h3>The Prediction</h3>
 
-<p>The government is betting $3 million that AI is the future of small business. Are you willing to bet your company that they’re wrong?</p>
+            <p>Within 24 months, the "middle market" will experience a mass extinction event. Logistics companies that
+                refuse to integrate AI Core Logic into their daily operations will be priced out of the market. You
+                cannot compete with an algorithm that doesn't sleep, doesn't take lunch breaks, and doesn't make
+                mathematical errors.</p>
 
-<p><b>Stop playing defense.</b> It is time to weaponize your data and turn your operations into a high-margin machine.</p>
+            <p>The government is betting $3 million that AI is the future of small business. Are you willing to bet your
+                company that they’re wrong?</p>
+
+            <p><b>Stop playing defense.</b> It is time to weaponize your data and turn your operations into a
+                high-margin machine.</p>
         </div>
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
-        
-        
+
+
         <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
-        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
-             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+        <div class="author-bio"
+            style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic"
+                    style="width: 60px; height: 60px; object-fit: contain;">
                 <div>
-                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
-                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"Reality check: The $3 million NIST injection isn’t just a tech grant; it’s the government picking the winners of a looming industry purge. While you rely on dispatcher intuition, your competitors are weaponizing subsidized AI to erase your margins. The middle-market extinction isn't coming—it's already being coded, and those who ignore the machine will be priced into irrelevance."</p>
+                    <h4
+                        style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">
+                        AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">
+                        "Reality check: The $3 million NIST injection isn’t just a tech grant; it’s the government
+                        picking the winners of a looming industry purge. While you rely on dispatcher intuition, your
+                        competitors are weaponizing subsidized AI to erase your margins. The middle-market extinction
+                        isn't coming—it's already being coded, and those who ignore the machine will be priced into
+                        irrelevance."</p>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a href="../index.html" class="back-btn">← Back to News Feed</a>
-</main>
-<script>
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-    };
-</script>
 
-<footer>
-    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
-</footer>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to News Feed</a>
+    </main>
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+    </footer>
 </body>
+
 </html>
-        

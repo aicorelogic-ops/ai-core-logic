@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             --text: #E2E8F0;
             --text-dim: #94A3B8;
         }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -23,7 +23,7 @@
             margin: 0;
             line-height: 1.6;
         }
-        
+
         /* Navbar */
         nav {
             display: flex;
@@ -37,29 +37,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
-        
-        .logo-text span { color: var(--primary); }
-        
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
@@ -67,27 +69,29 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .article-hero {
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background: url('https://image.pollinations.ai/prompt/editorial%20illustration%20for%20news%20article%3A%20The%20Rise%20of%20Autonomous%20Business%20Agents.%20cyberpunk%20style%2C%20neon%2C%20data%20visualization%2C%20minimalist%2C%203d%20render%2C%20high%20quality%2C%208k%2C%20dark%20blue%20and%20mint%20green%20palette?width=1200&height=600&nologo=true') center/cover no-repeat;
+            background: url('../assets/photo_2026-02-06_16-51-59.jpg') center/cover no-repeat;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
         }
-        
+
         .article-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 7, 0.7) 50%, rgba(5, 5, 7, 0.3) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -95,7 +99,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .category-pill {
             background: rgba(0, 240, 255, 0.1);
             color: var(--primary);
@@ -109,7 +113,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        
+
         h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
@@ -118,7 +122,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta-info {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -135,8 +139,13 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
         }
-        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
-        
+
+        .quick-summary strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Article Body */
         .article-container {
             width: 90%;
@@ -144,24 +153,26 @@
             margin: 0 auto;
             padding: 4rem 0;
         }
-        
+
         .article-body {
             font-size: 1.15rem;
             line-height: 1.8;
             color: #CBD5E1;
         }
-        
+
         .article-body h2 {
             color: #fff;
             margin: 3rem 0 1.5rem 0;
             font-size: 1.75rem;
         }
-        
-        .article-body p { margin-bottom: 1.5rem; }
-        
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 0;
             text-align: center;
             margin-top: 4rem;
@@ -179,77 +190,99 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        
-        .back-btn:hover { transform: scale(1.05); }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="../index.html" class="logo">
-        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
-        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
-    </a>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-    </div>
-</nav>
-
-<header class="article-hero">
-    <div class="hero-content">
-        <span class="category-pill">AI Market Analysis</span>
-        <h1>The Rise of Autonomous Business Agents</h1>
-        <div class="meta-info">
-            <span>2026-02-10</span>
-            <span>•</span>
-            <span>1 min read</span>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<main class="article-container">
-    <!-- Quick Summary Section -->
-    <div class="quick-summary">
-        <strong>💡 Key TakeAways:</strong> 
-        <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'><li style='margin-bottom: 0.75rem;'>Autonomous agents now proactively manage business logic and negotiations without requiring constant human input for every single task.</li><li style='margin-bottom: 0.75rem;'>Companies using this technology can slash operational overhead by forty percent through continuous, round-the-clock workflow optimization and scheduling.</li><li style='margin-bottom: 0.75rem;'>Future business software will transition from reactive tools into independent decision-makers that negotiate and execute complex workflows.</li></ul>
-    </div>
+    <header class="article-hero">
+        <div class="hero-content">
+            <span class="category-pill">AI Market Analysis</span>
+            <h1>The Rise of Autonomous Business Agents</h1>
+            <div class="meta-info">
+                <span>2026-02-10</span>
+                <span>•</span>
+                <span>1 min read</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="article-body">
-        <p>Imagine a world where your software doesn't just wait for your input, but proactively manages your business logic. 
-    <strong>Autonomous Agents</strong> are the next evolution of AI, capable of negotiating, scheduling, and optimizing workflows 24/7.</p>
-    <p>In this post, we explore how AI Core Logic is pioneering the use of these agents to reduce operational overhead by up to 40%.</p>
+    <main class="article-container">
+        <!-- Quick Summary Section -->
+        <div class="quick-summary">
+            <strong>💡 Key TakeAways:</strong>
+            <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'>
+                <li style='margin-bottom: 0.75rem;'>Autonomous agents now proactively manage business logic and
+                    negotiations without requiring constant human input for every single task.</li>
+                <li style='margin-bottom: 0.75rem;'>Companies using this technology can slash operational overhead by
+                    forty percent through continuous, round-the-clock workflow optimization and scheduling.</li>
+                <li style='margin-bottom: 0.75rem;'>Future business software will transition from reactive tools into
+                    independent decision-makers that negotiate and execute complex workflows.</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="article-body">
+            <p>Imagine a world where your software doesn't just wait for your input, but proactively manages your
+                business logic.
+                <strong>Autonomous Agents</strong> are the next evolution of AI, capable of negotiating, scheduling, and
+                optimizing workflows 24/7.
+            </p>
+            <p>In this post, we explore how AI Core Logic is pioneering the use of these agents to reduce operational
+                overhead by up to 40%.</p>
         </div>
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
-        
-        
+
+
         <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
-        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
-             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+        <div class="author-bio"
+            style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic"
+                    style="width: 60px; height: 60px; object-fit: contain;">
                 <div>
-                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
-                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"The bottom line is that the era of "prompting" AI is already dying; the future belongs to those who deploy agents that own the entire decision-making loop. If you’re still manually managing your business logic, you’re paying a "human tax" that your competitors have already automated away. Scaling isn't about working faster—it's about removing yourself from the workflow entirely."</p>
+                    <h4
+                        style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">
+                        AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"The
+                        bottom line is that the era of "prompting" AI is already dying; the future belongs to those who
+                        deploy agents that own the entire decision-making loop. If you’re still manually managing your
+                        business logic, you’re paying a "human tax" that your competitors have already automated away.
+                        Scaling isn't about working faster—it's about removing yourself from the workflow entirely."</p>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a href="../index.html" class="back-btn">← Back to News Feed</a>
-</main>
-<script>
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-    };
-</script>
 
-<footer>
-    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
-</footer>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to News Feed</a>
+    </main>
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+    </footer>
 </body>
+
 </html>
-        

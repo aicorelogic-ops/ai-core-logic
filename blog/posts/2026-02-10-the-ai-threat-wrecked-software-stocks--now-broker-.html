@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             --text: #E2E8F0;
             --text-dim: #94A3B8;
         }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -23,7 +23,7 @@
             margin: 0;
             line-height: 1.6;
         }
-        
+
         /* Navbar */
         nav {
             display: flex;
@@ -37,29 +37,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
-        
-        .logo-text span { color: var(--primary); }
-        
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
@@ -67,27 +69,29 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .article-hero {
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background: url('https://image.pollinations.ai/prompt/iPhone%20photo%20amateur%20candid%20shot%2C%20first-person%20POV%20perspective%2C%20computer%20screen%20showing%20shocking%20data%20about%20%27The%20AI%20threat%20wrecked%20software%20stocks.%20Now%20broker%20stocks%20loo%27%2C%20messy%20desk%20with%20papers%20and%20coffee%20cup%2C%20RED%20CIRCLE%20hand-drawn%20around%20key%20detail%2C%20RED%20ARROW%20pointing%20to%20problem%2C%20harsh%20office%20lighting%2C%20grainy%20quality%2C%20user-generated%20content%20aesthetic%2C%20flash%20photography%2C%20NOT%20professional%2C%20NOT%20stock%20photo%2C%20leaked%20evidence%20style?width=1200&height=630&nologo=true') center/cover no-repeat;
+            background: url('../assets/photo_2026-02-06_16-52-04.jpg') center/cover no-repeat;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
         }
-        
+
         .article-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 7, 0.7) 50%, rgba(5, 5, 7, 0.3) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -95,7 +99,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .category-pill {
             background: rgba(0, 240, 255, 0.1);
             color: var(--primary);
@@ -109,7 +113,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        
+
         h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
@@ -118,7 +122,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta-info {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -135,8 +139,13 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
         }
-        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
-        
+
+        .quick-summary strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Article Body */
         .article-container {
             width: 90%;
@@ -144,24 +153,26 @@
             margin: 0 auto;
             padding: 4rem 0;
         }
-        
+
         .article-body {
             font-size: 1.15rem;
             line-height: 1.8;
             color: #CBD5E1;
         }
-        
+
         .article-body h2 {
             color: #fff;
             margin: 3rem 0 1.5rem 0;
             font-size: 1.75rem;
         }
-        
-        .article-body p { margin-bottom: 1.5rem; }
-        
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 0;
             text-align: center;
             margin-top: 4rem;
@@ -179,117 +190,148 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        
-        .back-btn:hover { transform: scale(1.05); }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="../index.html" class="logo">
-        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
-        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
-    </a>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-    </div>
-</nav>
-
-<header class="article-hero">
-    <div class="hero-content">
-        <span class="category-pill">AI Market Analysis</span>
-        <h1>The AI threat wrecked software stocks. Now broker stocks look next with LPL down 11%</h1>
-        <div class="meta-info">
-            <span>2026-02-10</span>
-            <span>•</span>
-            <span>2 min read</span>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<main class="article-container">
-    <!-- Quick Summary Section -->
-    <div class="quick-summary">
-        <strong>💡 Key TakeAways:</strong> 
-        <ul>
-    <li><strong>LPL Financial stock plummeted 11%</strong> in a single trading session.</li>
-    <li><strong>Software stocks were the first domino</strong>; brokers are the second.</li>
-    <li><strong>New AI tax tools promise instant results</strong>, rendering traditional advisors obsolete.</li>
-</ul>
-    </div>
+    <header class="article-hero">
+        <div class="hero-content">
+            <span class="category-pill">AI Market Analysis</span>
+            <h1>The AI threat wrecked software stocks. Now broker stocks look next with LPL down 11%</h1>
+            <div class="meta-info">
+                <span>2026-02-10</span>
+                <span>•</span>
+                <span>2 min read</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="article-body">
-        
+    <main class="article-container">
+        <!-- Quick Summary Section -->
+        <div class="quick-summary">
+            <strong>💡 Key TakeAways:</strong>
+            <ul>
+                <li><strong>LPL Financial stock plummeted 11%</strong> in a single trading session.</li>
+                <li><strong>Software stocks were the first domino</strong>; brokers are the second.</li>
+                <li><strong>New AI tax tools promise instant results</strong>, rendering traditional advisors obsolete.
+                </li>
+            </ul>
+        </div>
 
-<p>Your broker’s stock just fell off a cliff, and it is only the beginning.</p>
+        <!-- Main Content -->
+        <div class="article-body">
 
-<p>AI is liquidating the financial services industry in real-time. We have analyzed the market data, and the high-fee middlemen are finally meeting their maker. If you think your "safe" stocks are protected, you are the next victim.</p>
 
-<p>Stop pretending the old world is coming back. Read this now before the rest of your portfolio evaporates into thin air.</p>
+            <p>Your broker’s stock just fell off a cliff, and it is only the beginning.</p>
 
-<h2>The 11% Nosedive That Put Wall Street on Notice</h2>
+            <p>AI is liquidating the financial services industry in real-time. We have analyzed the market data, and the
+                high-fee middlemen are finally meeting their maker. If you think your "safe" stocks are protected, you
+                are the next victim.</p>
 
-<p>LPL Financial shares crashed 11% today, sending a shockwave through the entire wealth management sector. The cause was a new AI-powered tax tool that performs complex planning in minutes. This is work that used to take human "experts" days of billable hours to complete.</p>
+            <p>Stop pretending the old world is coming back. Read this now before the rest of your portfolio evaporates
+                into thin air.</p>
 
-<p>Investors are fleeing traditional brokerages because the value proposition is dead. If a bot can do the work for pennies, nobody is going to pay a suit in a corner office thousands of dollars. The market realized that "middlemen" who charge for basic math are dead men walking.</p>
+            <h2>The 11% Nosedive That Put Wall Street on Notice</h2>
 
-<ul>
-    <li><strong>LPL Financial stock plummeted 11%</strong> in a single trading session.</li>
-    <li><strong>Software stocks were the first domino</strong>; brokers are the second.</li>
-    <li><strong>New AI tax tools promise instant results</strong>, rendering traditional advisors obsolete.</li>
-</ul>
+            <p>LPL Financial shares crashed 11% today, sending a shockwave through the entire wealth management sector.
+                The cause was a new AI-powered tax tool that performs complex planning in minutes. This is work that
+                used to take human "experts" days of billable hours to complete.</p>
 
-<h2>The Violent Death of the Expensive Middleman</h2>
+            <p>Investors are fleeing traditional brokerages because the value proposition is dead. If a bot can do the
+                work for pennies, nobody is going to pay a suit in a corner office thousands of dollars. The market
+                realized that "middlemen" who charge for basic math are dead men walking.</p>
 
-<p>Software stocks already took a beating, but now the rot is spreading to the front office. Brokers have spent decades charging you massive fees for manual data entry and "advice" that is actually just a script. They are terrified because their "expertise" has been turned into a line of code.</p>
+            <ul>
+                <li><strong>LPL Financial stock plummeted 11%</strong> in a single trading session.</li>
+                <li><strong>Software stocks were the first domino</strong>; brokers are the second.</li>
+                <li><strong>New AI tax tools promise instant results</strong>, rendering traditional advisors obsolete.
+                </li>
+            </ul>
 
-<p>AI does not need a lunch break, a bonus, or a 401k. It does not make math errors. It just works. While your broker was playing golf, the machines learned how to do his job better, faster, and for free.</p>
+            <h2>The Violent Death of the Expensive Middleman</h2>
 
-<h3>Your Portfolio is a Massive Target</h3>
+            <p>Software stocks already took a beating, but now the rot is spreading to the front office. Brokers have
+                spent decades charging you massive fees for manual data entry and "advice" that is actually just a
+                script. They are terrified because their "expertise" has been turned into a line of code.</p>
 
-<p>Every firm that relies on "human intelligence" for repetitive tasks is currently being disrupted. If a business model depends on charging you for time, that business is finished. You are watching the extinction of a species in real-time.</p>
+            <p>AI does not need a lunch break, a bonus, or a 401k. It does not make math errors. It just works. While
+                your broker was playing golf, the machines learned how to do his job better, faster, and for free.</p>
 
-<p>The market is finally waking up to the reality that "experts" are just expensive filters for information AI already possesses. If you are holding legacy financial stocks, you are holding a bag of hot garbage.</p>
+            <h3>Your Portfolio is a Massive Target</h3>
 
-<h2>Join the AI Core Logic Future or Get Left Behind</h2>
+            <p>Every firm that relies on "human intelligence" for repetitive tasks is currently being disrupted. If a
+                business model depends on charging you for time, that business is finished. You are watching the
+                extinction of a species in real-time.</p>
 
-<p>The old guard is screaming for regulation, but the math does not lie. Efficiency wins every single time. You can either hold the bag while these legacy institutions crumble, or you can pivot to the AI future today.</p>
+            <p>The market is finally waking up to the reality that "experts" are just expensive filters for information
+                AI already possesses. If you are holding legacy financial stocks, you are holding a bag of hot garbage.
+            </p>
 
-<p>What do you think? Do you trust a human broker or an AI bot with your tax planning in 2024?</p>
+            <h2>Join the AI Core Logic Future or Get Left Behind</h2>
 
-<p><strong>Click here to subscribe to AI Core Logic and protect your wealth from the next market wipeout.</strong></p>
+            <p>The old guard is screaming for regulation, but the math does not lie. Efficiency wins every single time.
+                You can either hold the bag while these legacy institutions crumble, or you can pivot to the AI future
+                today.</p>
+
+            <p>What do you think? Do you trust a human broker or an AI bot with your tax planning in 2024?</p>
+
+            <p><strong>Click here to subscribe to AI Core Logic and protect your wealth from the next market
+                    wipeout.</strong></p>
         </div>
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
-        
-        
+
+
         <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
-        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
-             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+        <div class="author-bio"
+            style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic"
+                    style="width: 60px; height: 60px; object-fit: contain;">
                 <div>
-                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
-                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"Let’s be real: The LPL nosedive isn’t just a bad trading session; it’s the definitive end of the billable hour in wealth management. AI has turned the "expert" advice you pay for into a free commodity, leaving traditional brokers with nothing to sell but expensive overhead. If your portfolio relies on human middlemen to justify their fees, you’re holding a bag that’s already on fire."</p>
+                    <h4
+                        style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">
+                        AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">
+                        "Let’s be real: The LPL nosedive isn’t just a bad trading session; it’s the definitive end of
+                        the billable hour in wealth management. AI has turned the "expert" advice you pay for into a
+                        free commodity, leaving traditional brokers with nothing to sell but expensive overhead. If your
+                        portfolio relies on human middlemen to justify their fees, you’re holding a bag that’s already
+                        on fire."</p>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a href="../index.html" class="back-btn">← Back to News Feed</a>
-</main>
-<script>
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-    };
-</script>
 
-<footer>
-    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
-</footer>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to News Feed</a>
+    </main>
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+    </footer>
 </body>
+
 </html>
-        

@@ -132,11 +132,33 @@ def generate_page(filename, posts, active_filter, page_title):
         template = template.replace(f'<a href="{filename}">{active_filter}</a>', f'<a href="{filename}" class="active">{active_filter}</a>')
     
     # 3. Generate Post Grid
+    brand_fallback = "assets/brand-logo.png"
+
     posts_html = ""
     for post in posts:
+        # Check if image is missing, a placeholder, or a known broken Pollinations URL
+        if not post['image_url'] or "via.placeholder.com" in post['image_url'] or "pollinations.ai" in post['image_url']:
+            # Use local brand logo as fallback
+            # Note: We need to make sure the path is relative to the key pages (index.html, etc.)
+            # index.html is in root, assets is in blog/assets? 
+            # Wait, the structure is:
+            # root/index.html -> blog/assets/... NO.
+            # root/blog/assets/... 
+            # Let's check where the pages are generated.
+            # generate_categories.py generates pages in `blog/` (e.g. blog/automation.html).
+            # The assets are in `blog/assets`.
+            # So `assets/brand-logo.png` is correct for pages in `blog/`.
+            # BUT index.html is also generated? 
+            # Let's check `generate_page` function. 
+            # It seems `generate_categories.py` writes to `blog/`.
+            # So `assets/brand-logo.png` works.
+            bg_image = brand_fallback
+        else:
+            bg_image = post['image_url']
+
         posts_html += f"""
         <article class="article-card">
-            <div class="card-image-placeholder" style="background-image: url('{post['image_url']}');">
+            <div class="card-image-placeholder" style="background-image: url('{bg_image}');">
                 <span class="category-pill">{post['category']}</span>
             </div>
             <div class="card-content">

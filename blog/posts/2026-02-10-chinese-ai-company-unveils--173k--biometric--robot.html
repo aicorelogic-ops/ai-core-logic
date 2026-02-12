@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             --text: #E2E8F0;
             --text-dim: #94A3B8;
         }
-        
+
         body {
             background-color: var(--bg);
             color: var(--text);
@@ -23,7 +23,7 @@
             margin: 0;
             line-height: 1.6;
         }
-        
+
         /* Navbar */
         nav {
             display: flex;
@@ -37,29 +37,31 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-        
+
         .logo-img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
             color: #fff;
             letter-spacing: -0.5px;
         }
-        
-        .logo-text span { color: var(--primary); }
-        
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
@@ -67,27 +69,29 @@
             font-weight: 500;
             transition: color 0.2s;
         }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .article-hero {
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background: url('https://image.pollinations.ai/prompt/iPhone%20photo%20amateur%20candid%20shot%2C%20first-person%20POV%20perspective%2C%20computer%20screen%20showing%20shocking%20data%20about%20%27Chinese%20AI%20company%20unveils%20%24173K%20%E2%80%98biometric%E2%80%99%20robot%20built%20for%27%2C%20messy%20desk%20with%20papers%20and%20coffee%20cup%2C%20RED%20CIRCLE%20hand-drawn%20around%20key%20detail%2C%20RED%20ARROW%20pointing%20to%20problem%2C%20harsh%20office%20lighting%2C%20grainy%20quality%2C%20user-generated%20content%20aesthetic%2C%20flash%20photography%2C%20NOT%20professional%2C%20NOT%20stock%20photo%2C%20leaked%20evidence%20style?width=1200&height=630&nologo=true') center/cover no-repeat;
+            background: url('../assets/photo_2026-02-06_16-51-52.jpg') center/cover no-repeat;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
         }
-        
+
         .article-hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 7, 0.7) 50%, rgba(5, 5, 7, 0.3) 100%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -95,7 +99,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .category-pill {
             background: rgba(0, 240, 255, 0.1);
             color: var(--primary);
@@ -109,7 +113,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        
+
         h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
@@ -118,7 +122,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta-info {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -135,8 +139,13 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
         }
-        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
-        
+
+        .quick-summary strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         /* Article Body */
         .article-container {
             width: 90%;
@@ -144,24 +153,26 @@
             margin: 0 auto;
             padding: 4rem 0;
         }
-        
+
         .article-body {
             font-size: 1.15rem;
             line-height: 1.8;
             color: #CBD5E1;
         }
-        
+
         .article-body h2 {
             color: #fff;
             margin: 3rem 0 1.5rem 0;
             font-size: 1.75rem;
         }
-        
-        .article-body p { margin-bottom: 1.5rem; }
-        
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
         /* Footer */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 3rem 0;
             text-align: center;
             margin-top: 4rem;
@@ -179,119 +190,147 @@
             font-weight: 600;
             transition: transform 0.2s;
         }
-        
-        .back-btn:hover { transform: scale(1.05); }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="../index.html" class="logo">
-        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
-        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
-    </a>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-    </div>
-</nav>
-
-<header class="article-hero">
-    <div class="hero-content">
-        <span class="category-pill">AI Market Analysis</span>
-        <h1>Chinese AI company unveils $173K ‘biometric’ robot built for human companionship</h1>
-        <div class="meta-info">
-            <span>2026-02-10</span>
-            <span>•</span>
-            <span>2 min read</span>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
         </div>
-    </div>
-</header>
+    </nav>
 
-<main class="article-container">
-    <!-- Quick Summary Section -->
-    <div class="quick-summary">
-        <strong>💡 Key TakeAways:</strong> 
-        <ul>
-    <li><b>Never calls in sick.</b></li>
-    <li><b>Doesn't need health insurance or a 401k.</b></li>
-    <li><b>Works 24/7 without a coffee break.</b></li>
-    <li><b>Actually stays warm to the touch.</b></li>
-</ul>
-    </div>
+    <header class="article-hero">
+        <div class="hero-content">
+            <span class="category-pill">AI Market Analysis</span>
+            <h1>Chinese AI company unveils $173K ‘biometric’ robot built for human companionship</h1>
+            <div class="meta-info">
+                <span>2026-02-10</span>
+                <span>•</span>
+                <span>2 min read</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="article-body">
-        <h3>Your Payroll Is A Sinking Ship (And No One Is Coming To Save You)</h3>
+    <main class="article-container">
+        <!-- Quick Summary Section -->
+        <div class="quick-summary">
+            <strong>💡 Key TakeAways:</strong>
+            <ul>
+                <li><b>Never calls in sick.</b></li>
+                <li><b>Doesn't need health insurance or a 401k.</b></li>
+                <li><b>Works 24/7 without a coffee break.</b></li>
+                <li><b>Actually stays warm to the touch.</b></li>
+            </ul>
+        </div>
 
-<p>You’re bleeding cash. Every single month.</p>
+        <!-- Main Content -->
+        <div class="article-body">
+            <h3>Your Payroll Is A Sinking Ship (And No One Is Coming To Save You)</h3>
 
-<p>You hire a new assistant. They’re gone in 90 days. You train a manager. They jump ship for an extra $2 an hour. <b>The "Human Element" is officially costing you your retirement.</b></p>
+            <p>You’re bleeding cash. Every single month.</p>
 
-<p>Think about the real numbers. Between recruitment, training, and "mental health days," you’re flushing $40,000 down the toilet every year per employee. It’s a joke. You’re stuck in a cycle of burning hours just to stay afloat while your competitors are scaling.</p>
+            <p>You hire a new assistant. They’re gone in 90 days. You train a manager. They jump ship for an extra $2 an
+                hour. <b>The "Human Element" is officially costing you your retirement.</b></p>
 
-<h3>The $173,000 Secret From Shanghai</h3>
+            <p>Think about the real numbers. Between recruitment, training, and "mental health days," you’re flushing
+                $40,000 down the toilet every year per employee. It’s a joke. You’re stuck in a cycle of burning hours
+                just to stay afloat while your competitors are scaling.</p>
 
-<p>We just found something that makes your HR department look like a Victorian museum. A Chinese startup just unveiled "Moya."</p>
+            <h3>The $173,000 Secret From Shanghai</h3>
 
-<p>It’s a humanoid robot. It costs $173,000. And here is the kicker: <b>It emits its own body heat.</b></p>
+            <p>We just found something that makes your HR department look like a Victorian museum. A Chinese startup
+                just unveiled "Moya."</p>
 
-<p>It sounds like science fiction. It feels like a movie. But it’s real. While most business owners are distracted by the "companionship" headline, they’re missing the point. This isn't just a toy. It's the blueprint for the death of manual labor.</p>
+            <p>It’s a humanoid robot. It costs $173,000. And here is the kicker: <b>It emits its own body heat.</b></p>
 
-<h3>The Silent Profit Killer</h3>
+            <p>It sounds like science fiction. It feels like a movie. But it’s real. While most business owners are
+                distracted by the "companionship" headline, they’re missing the point. This isn't just a toy. It's the
+                blueprint for the death of manual labor.</p>
 
-<p>What’s really costing you? It’s not the salary. It’s the friction. It's the drama. It’s the 40% of time wasted on "managing" instead of "doing."</p>
+            <h3>The Silent Profit Killer</h3>
 
-<p>The "40% Rule" states that in a typical logistics or service business, nearly half of your overhead is lost to human error and inefficiency. Moya is the first step toward a zero-friction workplace. Imagine a worker that:</p>
+            <p>What’s really costing you? It’s not the salary. It’s the friction. It's the drama. It’s the 40% of time
+                wasted on "managing" instead of "doing."</p>
 
-<ul>
-    <li><b>Never calls in sick.</b></li>
-    <li><b>Doesn't need health insurance or a 401k.</b></li>
-    <li><b>Works 24/7 without a coffee break.</b></li>
-    <li><b>Actually stays warm to the touch.</b></li>
-</ul>
+            <p>The "40% Rule" states that in a typical logistics or service business, nearly half of your overhead is
+                lost to human error and inefficiency. Moya is the first step toward a zero-friction workplace. Imagine a
+                worker that:</p>
 
-<h3>The 18-Month Death Sentence</h3>
+            <ul>
+                <li><b>Never calls in sick.</b></li>
+                <li><b>Doesn't need health insurance or a 401k.</b></li>
+                <li><b>Works 24/7 without a coffee break.</b></li>
+                <li><b>Actually stays warm to the touch.</b></li>
+            </ul>
 
-<p>This changes everything. If you think $173k is expensive, try calculating the cost of five years of human turnover. It’s a drop in the bucket.</p>
+            <h3>The 18-Month Death Sentence</h3>
 
-<p>Companies ignoring this shift will be obsolete in 18 months. You’ll be stuck paying $25/hr for a human who hates their job, while your competitor pays pennies in electricity for a robot that does it better, faster, and without the attitude. <b>The gap is widening. You are either the pilot or the wreckage.</b></p>
+            <p>This changes everything. If you think $173k is expensive, try calculating the cost of five years of human
+                turnover. It’s a drop in the bucket.</p>
 
-<h3>What We Discovered</h3>
+            <p>Companies ignoring this shift will be obsolete in 18 months. You’ll be stuck paying $25/hr for a human
+                who hates their job, while your competitor pays pennies in electricity for a robot that does it better,
+                faster, and without the attitude. <b>The gap is widening. You are either the pilot or the wreckage.</b>
+            </p>
 
-<p>We went deep into the specs. This isn't just a plastic shell. It's biometric. It's responsive. It's the most advanced humanoid we've ever seen. The "companionship" angle is just the Trojan horse for total industry disruption.</p>
+            <h3>What We Discovered</h3>
 
-<p>Stop looking for "better people." Start looking for better logic. The future of your margins depends on how fast you can stop being a babysitter and start being an operator.</p>
+            <p>We went deep into the specs. This isn't just a plastic shell. It's biometric. It's responsive. It's the
+                most advanced humanoid we've ever seen. The "companionship" angle is just the Trojan horse for total
+                industry disruption.</p>
+
+            <p>Stop looking for "better people." Start looking for better logic. The future of your margins depends on
+                how fast you can stop being a babysitter and start being an operator.</p>
         </div>
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
-        
-        
+
+
         <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
-        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
-             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+        <div class="author-bio"
+            style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+            <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic"
+                    style="width: 60px; height: 60px; object-fit: contain;">
                 <div>
-                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
-                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"Let's be real: your payroll isn't an investment; it’s a liability bleeding your margins dry through human friction. While others chase "better culture," the real winners are replacing volatile drama with humanoid logic to secure a zero-friction future. If you’re still babysitting staff instead of deploying biometric automation, you aren’t just falling behind—you’re already becoming the wreckage."</p>
+                    <h4
+                        style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">
+                        AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">
+                        "Let's be real: your payroll isn't an investment; it’s a liability bleeding your margins dry
+                        through human friction. While others chase "better culture," the real winners are replacing
+                        volatile drama with humanoid logic to secure a zero-friction future. If you’re still babysitting
+                        staff instead of deploying biometric automation, you aren’t just falling behind—you’re already
+                        becoming the wreckage."</p>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a href="../index.html" class="back-btn">← Back to News Feed</a>
-</main>
-<script>
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("scroll-progress").style.width = scrolled + "%";
-    };
-</script>
 
-<footer>
-    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
-</footer>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to News Feed</a>
+    </main>
+    <script>
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+    </footer>
 </body>
+
 </html>
-        
