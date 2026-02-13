@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft AI leader predicts automation in white-collar jobs | AI Core Logic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00F0FF;
+            --secondary: #7000FF;
+            --bg: #050507;
+            --surface: #0F1419;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: url('https://image.pollinations.ai/prompt/Professional%20news%20graphic%20in%20the%20style%20of%20high-end%20broadcast%20journalism%20%28ABC%20News%20/%20Bloomberg%29%3A%0A%0A%20%20%20%20SUBJECT%3A%20A%20modern%20minimalist%20office%20workspace%20with%20a%20laptop%2C%20where%20a%20glowing%20translucent%20digital%20AI%20circuit%20pattern%20overlays%20a%20professional%27s%20hands%20on%20the%20keyboard.%2C%20somber%20tones%2C%20serious%20mood%2C%20documentary%20style%0A%20%20%20%20%0A%20%20%20%20VISUAL%20STYLE%20%28Strict%20Adherence%29%3A%0A%20%20%20%20-%20Lighting%3A%20Even%20studio%20lighting%2C%20bright%2C%20polished.%0A%20%20%20%20-%20Color%20Palette%3A%20Muted%20soft%20colors%2C%20neutral%20tones%2C%20cool%20blues%2C%20warm%20whites%2C%20limited%20color%20range.%0A%20%20%20%20-%20Composition%3A%20Portrait/Close-up%20focus%20on%20subject%20%28face/upper%20body%29%2C%20cleanly%20overlaid%20on%20background.%0A%20%20%20%20-%20Elements%3A%20Clean%20lines%2C%20soft%20focus%20background%2C%20graphic%20overlay%2C%20circular%20frame%20element%20if%20applicable.%0A%20%20%20%20%0A%20%20%20%20TEXT%20OVERLAY%3A%0A%20%20%20%20-%20Headline%3A%20%22Microsoft%20AI%20leader%20predicts%20automation%20in%20white-collar%20jobs%22%20%28Bold%2C%20Sans-Serif%2C%20White%20text%20on%20dark/gradient%20background%20at%20bottom%29%0A%20%20%20%20-%20Badge%3A%20%22TECH%20UPDATE%22%20%28Small%2C%20top-left%2C%20professional%29%0A%20%20%20%20%0A%20%20%20%20AESTHETIC%3A%0A%20%20%20%20-%20Emotional%2C%20poignant%2C%20and%20reflective%20but%20professional.%0A%20%20%20%20-%20%22News%20Broadcast%22%20aesthetic%20but%20artistic%20and%20clean.%0A%20%20%20%20-%20High-contrast%20but%20soft%2C%20not%20harsh.%0A%20%20%20%20-%201200x630%20aspect%20ratio.%0A%20%20%20%20?width=1200&height=630&nologo=true&model=flux') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+        }
+        
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .category-pill {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Key Takeaways Box (NEW) */
+        .quick-summary {
+            background: rgba(0, 240, 255, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
+        
+        /* Article Body */
+        .article-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #CBD5E1;
+        }
+        
+        .article-body h2 {
+            color: #fff;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: var(--primary);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="logo">
+        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="hero-content">
+        <span class="category-pill">AI Market Analysis</span>
+        <h1>Microsoft AI leader predicts automation in white-collar jobs</h1>
+        <div class="meta-info">
+            <span>2026-02-12</span>
+            <span>•</span>
+            <span>2 min read</span>
+        </div>
+    </div>
+</header>
+
+<main class="article-container">
+    <!-- Quick Summary Section -->
+    <div class="quick-summary">
+        <strong>💡 Key TakeAways:</strong> 
+        Key insights and actionable takeaways to stay ahead in the AI landscape.
+    </div>
+
+    <!-- Main Content -->
+    <div class="article-body">
+        
+<h1>Microsoft AI Leader Predicts Automation in White-Collar Jobs</h1>
+
+Think your job is safe? Think again.
+
+Microsoft's AI boss just dropped a bomb. A BIG one. One that could turn your world upside down.
+
+<h3>Are YOU Next?</h3>
+
+Running a logistics company? A small business? Handling the day-to-day grind of invoices, reports, and customer service? Then listen up. This ain't some sci-fi fantasy.
+
+You're probably drowning in paperwork. Chasing down late payments. Spending hours on tasks that could be done in minutes. <b>You're bleeding money and time.</b> Time you could be spending growing your business, not stuck in the weeds.
+
+And the worst part? You feel like you're on a hamster wheel. Running faster and faster, but getting nowhere.
+
+<b>You're not alone.</b> I hear it every day. "I'm working 80 hours a week and still can't keep up." "My margins are shrinking and I don't know why." "I'm terrified of falling behind the competition."
+
+But what if that fear became reality...faster than you think?
+
+<h3>The AI Tsunami Is Coming</h3>
+
+Here's the deal: Mustafa Suleyman, Microsoft's AI chief, says AI can automate white-collar jobs. Within <b>12-18 MONTHS.</b>
+
+Let that sink in.
+
+Tech is hitting human-level performance. Which means those tedious tasks you're stuck doing? They can be automated. Fast. Efficiently. And for a fraction of the cost.
+
+<h3>What This Means For YOU</h3>
+
+This isn't just about some fancy new software. This is about survival.
+
+Imagine slashing your operational costs by 50%. Imagine freeing up your staff to focus on strategy and growth. Imagine getting ahead of the competition by leveraging AI to optimize every aspect of your business.
+
+<b>That's the power of automation.</b>
+
+<ul>
+<li><b>Save Time:</b> No more wasted hours on manual processes.</li>
+<li><b>Save Money:</b> Reduce labor costs and increase efficiency.</li>
+<li><b>Gain an Edge:</b> Outperform your competitors with AI-powered solutions.</li>
+</ul>
+
+<h3>The Future is Now (Are You Ready?)</h3>
+
+The AI revolution isn't coming. It's already here. The question is, will you be a victim or a victor?
+
+The businesses that embrace automation will thrive. The ones that don't...won't.
+
+Worried about being left behind?
+
+Then you need a plan. You need to understand how AI can transform your business. You need to start implementing solutions NOW.
+
+Want to learn the *exact* strategies we use to help businesses like yours leverage AI to skyrocket their profits and dominate their market?
+
+[CLICK HERE for our FREE AI Automation Blueprint and discover how to future-proof your business before it's too late.]
+
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        
+        <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
+        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"We analyze the intersection of logistics, automation, and AI to deliver actionable insights for modern businesses. No hype, just practical strategy."</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="../index.html" class="back-btn">← Back to News Feed</a>
+</main>
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+    };
+</script>
+
+<footer>
+    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+</footer>
+</body>
+</html>
+        

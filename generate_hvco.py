@@ -247,14 +247,20 @@ def generate_hvco():
         final_social_msg = social_copy.replace("[LINK]", live_link)
         
         print(f"📢 Posting to Facebook...")
-        fb_pub.post_photo(photo_url=image_url, message=final_social_msg)
+        post_id = fb_pub.post_photo(photo_url=image_url, message=final_social_msg)
         
-        # F. Mark as Processed
-        tracker.mark_as_processed(article['link'], {
-            'title': article['title'], 
-            'blog_file': filename,
-            'image_url': image_url
-        })
+        if post_id:
+            print(f"✅ Automatically posted to Facebook! ID: {post_id}")
+            # F. Mark as Processed
+            tracker.mark_as_processed(article['link'], {
+                'title': article['title'], 
+                'blog_file': filename,
+                'image_url': image_url,
+                'fb_post_id': post_id
+            })
+        else:
+            print("⚠️ Facebook posting failed. Article NOT marked as fully processed (check logs).")
+
         
         print("💤 Cooling down API...")
         time.sleep(5)

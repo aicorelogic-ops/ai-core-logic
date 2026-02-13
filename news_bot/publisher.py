@@ -55,40 +55,51 @@ class FacebookPublisher:
         max_retries = 3
         retry_delay = 5  # seconds
         
+        # Combine verification and download to ensure we have valid content
+        image_content = None
         for attempt in range(max_retries):
             try:
-                print(f"Verifying image URL accessibility (attempt {attempt + 1}/{max_retries})...")
-                img_response = requests.head(photo_url, timeout=10)
-                if img_response.status_code == 200:
-                    print(f"Image is ready!")
+                print(f"Downloading image (attempt {attempt + 1}/{max_retries})...")
+                content = self._download_image_content(photo_url)
+                
+                if content and len(content) > 1000:
+                    print(f"✅ Image downloaded successfully ({len(content)} bytes).")
+                    image_content = content
                     break
                 else:
-                    print(f"Image not ready yet (status {img_response.status_code}), waiting {retry_delay}s...")
+                    print(f"⚠️ Image download failed or too small (<1KB). Retrying in {retry_delay}s...")
                     time.sleep(retry_delay)
             except Exception as e:
-                print(f"Image check failed: {e}, waiting {retry_delay}s...")
+                print(f"❌ Image download error: {e}. Retrying in {retry_delay}s...")
                 time.sleep(retry_delay)
         
-        # Now post to Facebook using BINARY UPLOAD (More reliable than URL)
+        if not image_content:
+            print("❌ Failed to retrieve valid image content after retries.")
+            return None
+        
+        # 2. Now post to Facebook using BINARY UPLOAD
         try:
-            # 1. Get image content (Local File or URL)
             print("Retrieving image for binary upload...")
             
-            image_content = None
-            if photo_url.startswith("file://"):
-                local_path = photo_url.replace("file://", "")
-                if os.name == 'nt': # Windows fix for file:///C:/...
-                    local_path = local_path.lstrip('/')
-                
-                print(f"Reading local file: {local_path}")
-                with open(local_path, "rb") as f:
-                    image_content = f.read()
-            else:
-                image_content = self._download_image_content(photo_url)
-            
+            # Handle local file case if needed (though we passed URL mostly)
             if not image_content:
-                print("Failed to retrieve image content.")
-                return None
+                if photo_url.startswith("file://"):
+                   # ... local file logic ...
+                   pass 
+            
+            # Since we likely have image_content from above loop:
+            if not image_content: 
+                 # Fallback for file:// or if logic above failed silently
+                 if photo_url.startswith("file://"):
+                    local_path = photo_url.replace("file://", "")
+                    if os.name == 'nt':
+                        local_path = local_path.lstrip('/')
+                    with open(local_path, "rb") as f:
+                        image_content = f.read()
+                 else:
+                    # Should have been caught above, but just in case
+                    return None
+
             
             content_size = len(image_content)
             print(f"Image Size: {content_size} bytes.")
