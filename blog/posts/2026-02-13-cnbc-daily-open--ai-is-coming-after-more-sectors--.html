@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNBC Daily Open: AI is coming after more sectors, and its pace isn't slowing | AI Core Logic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00F0FF;
+            --secondary: #7000FF;
+            --bg: #050507;
+            --surface: #0F1419;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: url('https://image.cnbcfm.com/api/v1/image/108264584-17708330642026-02-11t180347z_1255596734_rc2sjjas5kp5_rtrmadp_0_usa-stocks.jpeg?v=1770833108&w=1920&h=1080') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+        }
+        
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .category-pill {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Key Takeaways Box (NEW) */
+        .quick-summary {
+            background: rgba(0, 240, 255, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
+        
+        /* Article Body */
+        .article-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #CBD5E1;
+        }
+        
+        .article-body h2 {
+            color: #fff;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: var(--primary);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="logo">
+        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="hero-content">
+        <span class="category-pill">AI Market Analysis</span>
+        <h1>CNBC Daily Open: AI is coming after more sectors, and its pace isn't slowing</h1>
+        <div class="meta-info">
+            <span>2026-02-13</span>
+            <span>•</span>
+            <span>2 min read</span>
+        </div>
+    </div>
+</header>
+
+<main class="article-container">
+    <!-- Quick Summary Section -->
+    <div class="quick-summary">
+        <strong>💡 Key TakeAways:</strong> 
+        <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'><li style='margin-bottom: 0.75rem;'>AI is now aggressively devaluing stocks in traditional sectors like real estate, trucking, and logistics.</li><li style='margin-bottom: 0.75rem;'>Legacy business models are failing to compete with the speed and efficiency of autonomous AI systems.</li><li style='margin-bottom: 0.75rem;'>Investors are fleeing these sectors as the threat of permanent AI displacement becomes a reality.</li></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="article-body">
+        <h2>Your industry is being hunted by a silent, digital predator.</h2>
+
+<p>The "AI takeover" isn't a future threat—it is a current massacre of legacy stocks. Real estate, trucking, and logistics just joined the casualty list alongside finance and software. At AI Core Logic, we track the tectonic shifts that leave traditional businesses in the dust. You need to understand this shift now or prepare to be liquidated.</p>
+
+<p>The latest market data shows a brutal sell-off in sectors once thought "safe" from automation. Real estate and logistics stocks are plunging as investors realize AI can do their jobs faster and cheaper. This isn't a slow transition; it is a high-speed collision with reality.</p>
+
+<h2>The AI Scythe is Gutting Traditional Real Estate</h2>
+
+<p>Investors are dumping real estate stocks because algorithms are replacing human brokers and analysts. AI can predict market shifts and manage properties with zero overhead. If your business model relies on manual data entry, your margins are already dead.</p>
+
+<ul>
+    <li>Real estate stocks are cratering as AI-driven platforms take over the market.</li>
+    <li>Human-led property management is becoming too expensive to survive.</li>
+    <li>The speed of AI analysis has made traditional "expert" opinions obsolete.</li>
+</ul>
+
+<h3>Trucking and Logistics are the Next Victims</h3>
+
+<p>Trucking used to be about horsepower and grit. Now, it is about data and routing efficiency that no human can match. AI is optimizing supply chains so aggressively that legacy companies can't keep up.</p>
+
+<p>Wait-and-see is a death sentence. The market is moving at the speed of light while most CEOs are still reading the morning paper. You are either the one using the AI, or you are the one being replaced by it.</p>
+
+<p>This market bloodbath is only the beginning of a total economic restructuring. Is your business built on a foundation that AI can't touch, or are you just waiting for the axe to fall? Contact AI Core Logic for a strategy audit. Follow for more updates.</p>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        
+        <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
+        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"The bottom line is that the "software eating the world" phase is over; we are now in the "AI digesting the physical economy" phase. Trucking and real estate aren't losing to better trucks or buildings, they are losing to superior logic. If your business relies on manual coordination, your margins are already a ghost."</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="../index.html" class="back-btn">← Back to News Feed</a>
+</main>
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+    };
+</script>
+
+<footer>
+    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+</footer>
+</body>
+</html>
+        

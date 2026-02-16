@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From software to real estate, U.S. sectors under the grip of AI scare trade | AI Core Logic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00F0FF;
+            --secondary: #7000FF;
+            --bg: #050507;
+            --surface: #0F1419;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: url('https://www.reuters.com/resizer/v2/LVO7HAFOZ5M35KE2YD5TSZHJRE.jpg?auth=289df85caca319aa19fb0e50adc901e3e620c43248ab08b9075d984cb397e590&height=1005&width=1920&quality=80&smart=true') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+        }
+        
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .category-pill {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Key Takeaways Box (NEW) */
+        .quick-summary {
+            background: rgba(0, 240, 255, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
+        
+        /* Article Body */
+        .article-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #CBD5E1;
+        }
+        
+        .article-body h2 {
+            color: #fff;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: var(--primary);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="logo">
+        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="hero-content">
+        <span class="category-pill">AI Market Analysis</span>
+        <h1>From software to real estate, U.S. sectors under the grip of AI scare trade</h1>
+        <div class="meta-info">
+            <span>2026-02-13</span>
+            <span>•</span>
+            <span>2 min read</span>
+        </div>
+    </div>
+</header>
+
+<main class="article-container">
+    <!-- Quick Summary Section -->
+    <div class="quick-summary">
+        <strong>💡 Key TakeAways:</strong> 
+        <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'><li style='margin-bottom: 0.75rem;'>Investors are aggressively liquidating software and real estate stocks because AI automation threatens to make their legacy business models obsolete.</li><li style='margin-bottom: 0.75rem;'>The AI scare trade is accelerating as Wall Street prioritizes companies that own the technology over those that are currently being replaced by it.</li><li style='margin-bottom: 0.75rem;'>Market data indicates a systemic shift where any industry relying on high-friction information brokerage is being permanently revalued lower by institutional traders.</li></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="article-body">
+        <h2>$Billions Are Vanishing As Wall Street Cannibalizes Its Own To Feed The AI Machine</h2>
+
+<p>The "safe" stocks you've been told to hold for decades are currently being liquidated by the world’s smartest investors. Wall Street has entered the "scare trade" era, and if your portfolio relies on legacy software or traditional real estate, you are standing in the blast zone.</p>
+
+<p>Market data shows a massive exodus from sectors seen as vulnerable to automation, causing sharp losses across U.S. indices this week. We are going to show you exactly which industries are being targeted and how to position yourself before the floor drops out completely.</p>
+
+<p>This week, institutional investors triggered a massive sell-off, dumping shares in software and real estate firms that are "vulnerable" to AI disruption. What started as a niche tech correction has spread into a systemic panic as Wall Street realizes that automation doesn't just improve business—it replaces it.</p>
+
+<p>The "AI Scare Trade" is no longer a theory; it is a live market execution that is punishing any company that hasn't integrated core logic into its DNA. From San Francisco to New York, the message is clear: adapt or be liquidated.</p>
+
+<h2>The Software Massacre Was Just The Warning Shot</h2>
+
+<p>For years, SaaS (Software as a Service) was the golden child of the market, but the honeymoon is over. Investors are now terrified that AI agents will do for free what these companies charge thousands for.</p>
+
+<ul>
+<li><strong>Hyper-Automation Risk:</strong> Companies that charge for "human-led" processes are seeing their valuations gutted.</li>
+<li><strong>Sector Contagion:</strong> The panic has jumped from coding platforms to administrative software and customer service hubs.</li>
+<li><strong>The Replacement Reality:</strong> If an LLM can do the job of a $150k/year software suite, the stock price of that suite has nowhere to go but down.</li>
+</ul>
+
+<h2>Why Real Estate Is The Next Domino To Fall</h2>
+
+<h3>The Automation Of Physical Value</h3>
+<p>You might think real estate is safe because it's "tangible," but the markets disagree. Commercial real estate and property management firms are being revalued based on how much of their overhead can be deleted by AI—or how much of their tenant base is about to go extinct.</p>
+
+<h3>The Death Of The Middleman</h3>
+<p>Any sector that relies on high-friction transactions and "information brokerage" is currently under the microscope. AI is stripping away the need for legacy intermediaries, and the market is pricing in that obsolescence right now.</p>
+
+<p>We are witnessing a Darwinian shift in the global economy where the inefficient are being purged to make room for the algorithmic. This isn't a temporary dip; it's a permanent re-rating of what a "valuable business" looks like in 2024 and beyond. </p>
+
+<p>Is your business model built on a foundation that AI is about to dissolve? </p>
+
+<p>Contact AI Core Logic for a strategy audit.</p>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        
+        <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
+        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"The bottom line is that the market is finally waking up to the "useless middleman" problem. If your company’s value proposition is just shuffling data or managing processes that an LLM can do for pennies, your stock price is eventually going to zero. We aren't just seeing a market dip; we are witnessing a Darwinian purging of the inefficient."</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="../index.html" class="back-btn">← Back to News Feed</a>
+</main>
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+    };
+</script>
+
+<footer>
+    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+</footer>
+</body>
+</html>
+        

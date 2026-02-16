@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How companies like Canva are seeing AI agents alter what coders do | AI Core Logic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00F0FF;
+            --secondary: #7000FF;
+            --bg: #050507;
+            --surface: #0F1419;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(5, 5, 7, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span { color: var(--primary); }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .article-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: url('https://i.insider.com/698f8473e1ba468a96ac0fae?width=1200&format=jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+        }
+        
+        .article-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(5,5,7,0.7) 50%, rgba(5,5,7,0.3) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .category-pill {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Key Takeaways Box (NEW) */
+        .quick-summary {
+            background: rgba(0, 240, 255, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        .quick-summary strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
+        
+        /* Article Body */
+        .article-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .article-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #CBD5E1;
+        }
+        
+        .article-body h2 {
+            color: #fff;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.75rem;
+        }
+        
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-dim);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: var(--primary);
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html" class="logo">
+        <img src="../assets/brand-logo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">AI.CORE <span>LOGIC</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+    </div>
+</nav>
+
+<header class="article-hero">
+    <div class="hero-content">
+        <span class="category-pill">AI Market Analysis</span>
+        <h1>How companies like Canva are seeing AI agents alter what coders do</h1>
+        <div class="meta-info">
+            <span>2026-02-15</span>
+            <span>•</span>
+            <span>1 min read</span>
+        </div>
+    </div>
+</header>
+
+<main class="article-container">
+    <!-- Quick Summary Section -->
+    <div class="quick-summary">
+        <strong>💡 Key TakeAways:</strong> 
+        <ul style='margin: 0; padding-left: 1.5rem; line-height: 1.8;'><li style='margin-bottom: 0.75rem;'>AI agents are shifting the role of software engineers from manual coders to high-level system overseers. This transition, pioneered by companies like Canva, increases efficiency by automating execution, but it threatens the traditional career path for junior professionals and signals a broader shift in all white-collar industries where "doing" is replaced by "directing."</li></ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="article-body">
+        <div><img src="https://i.insider.com/698f8473e1ba468a96ac0fae?width=1200&amp;format=jpeg" style="width: 100%;" /><div>
+<h3>THE EVOLUTION OF THE AUTONOMOUS AGENT</h3>
+<p>Software engineering is undergoing a fundamental structural shift as AI agents transition from passive assistants to active participants in the development lifecycle. At firms like Canva, the traditional role of the "coder" is being replaced by the "overseer," where human intelligence is prioritized for system architecture rather than manual syntax execution.</p>
+<p>These AI agents operate by breaking down complex objectives into a sequence of executable tasks, utilizing large language models to write, test, and debug code autonomously. This mechanism allows teams to maintain vast codebases with significantly less manual intervention, effectively automating the "to-do list" of a standard development sprint. By offloading low-level logic to agentic systems, companies are reporting a drastic reduction in time-to-market for new features.</p>
+<p>This shift represents a significant breakthrough in labor efficiency but raises critical questions regarding the future of junior-level employment. As entry-level tasks become fully automated, the industry must redefine how the next generation of engineers will gain the foundational experience necessary to become the high-level overseers of tomorrow. This model serves as a precursor for the broader automation of white-collar professional services.</p>
+
+#SoftwareEngineering #ArtificialIntelligence #FutureOfWork #TechTrends #Canva #AIAgents #ComputerScience #Automation
+
+</div></div>
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;">
+        
+        
+        <!-- Editorial Attribution (Brand Logo + Dynamic Prospect) -->
+        <div class="author-bio" style="background: #0F1419; padding: 2rem; border-radius: 8px; border-left: 4px solid #00F0FF;">
+             <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <img src="../assets/brand-logo.png" alt="AI Core Logic" style="width: 60px; height: 60px; object-fit: contain;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; font-family: 'Outfit', sans-serif; color: #00F0FF; font-size: 1.1rem;">AI Core Logic Editorial</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: #94A3B8; line-height: 1.6; font-style: italic;">"EDITORIAL PROSPECT: This story is a high-performing "structural shift" piece. It moves the conversation beyond the cliché of AI replacing humans and focuses on the "Overseer Model," which is the next logical step in corporate evolution. It targets the "AI Core Logic" audience by providing a technical explanation of agentic workflows while addressing the socio-economic anxiety of the professional class. It is designed to be shared by tech leads, HR directors, and industry analysts."</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <a href="../index.html" class="back-btn">← Back to News Feed</a>
+</main>
+<script>
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+    };
+</script>
+
+<footer>
+    <p>&copy; 2026 AI Core Logic. Scanned for excellence.</p>
+</footer>
+</body>
+</html>
+        
